@@ -1,5 +1,5 @@
 
-mtex: main.cpp fileIO.hpp window.hpp definitions.hpp
+mtex: main.cpp fileIO.hpp window.hpp definitions.hpp text.hpp
 	@ echo "> Creating mtex"
 	@ echo " > Building executable..."
 	@ g++ main.cpp -lncurses -o mtex
