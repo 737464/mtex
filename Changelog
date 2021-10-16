@@ -1,0 +1,55 @@
+# Syntax
+Unreleased:
+    - ... [[Importance (1-3)]]
+
+Version [Version number (e.g. 1.0)] - [Started Release Date]
+    Subversion [Subversion number (e.g. 1.4)] - [Release Date] @ [Author]
+        Added:
+            - ...
+        Changed:
+            - ...
+        Deprecated:
+            - ...
+        Removed:
+            - ...
+        Fixed:
+            - ...
+
+
+#Changelog
+
+Unreleased General:
+
+General:
+    Added:
+        - LICENSE - 16.08.2021   @ 737464
+        - Changelog - 16.08.2021 @ 737464
+        - Buildinfo - 16.08.2021 @ 737464
+        - src - 16.08.2021       @ 737464
+        - README.md - 16.08.2021 @ 737464
+    Changed:
+    Deprecated:
+    Removed:
+
+
+
+Unreleased:
+    - Add file menu [2]
+    - Add file tabs [1]
+    - Fix flickering of text while scaling [3]
+    - Add scrolling [3]
+    - Add file renaming
+
+Version 0.0 - 16.08.2021
+    Subversion 0.1 - 16.08-2021 @ 737464
+        Added:
+            - main.cpp
+            - definitions.hpp
+            - fileIO.hpp
+            - text.hpp
+            - window.hpp
+            - Makefile
+        Changed:
+        Deprecated:
+        Removed:
+        Fixed:
