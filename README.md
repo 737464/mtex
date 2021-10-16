@@ -2,7 +2,7 @@
 
 ## Minimalistic Text Editor for Unix (mtex) ##
 
-![mtex logo](/Images/mtex logo 3.png?raw=true)
+![mtex logo](/Images/mtex_logo_3.png?raw=true)
 
 mtex is a minimalistic and lightweight text editor for unix systems. It runs in the terminal which makes it a cool feature for short notes or writing your ideas down while coding.
 
