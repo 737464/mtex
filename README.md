@@ -14,7 +14,7 @@ mtex is a minimalistic and lightweight text editor for unix systems. It runs in 
 
 ## Images ##
 
-![mtex view](/Images/Image_mtex_view.png)
+![mtex view](/Images/Image_mtex_view.png?raw=true)
 
 ## How to use mtex: ##
 
