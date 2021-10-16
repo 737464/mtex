@@ -1,4 +1,4 @@
-# mtex #
+# mtex
 
 ## Minimalistic Text Editor for Unix (mtex) ##
 
