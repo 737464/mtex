@@ -19,10 +19,7 @@ mtex is a minimalistic and lightweight text editor for unix systems. It runs in 
 ## How to use mtex: ##
 
 To open a file in mtex at start, type:
-    `mtex` `filename`
-
-<To open multiple files at start continue with a space and the next filename:>
-    <`mtex` `file1` `file2` `...`>
+    `mtex` `file`
 
 To open a file while the program is running, press `OPTION-SHIFT-O`
 
