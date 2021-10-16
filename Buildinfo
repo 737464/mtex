@@ -1,7 +1,7 @@
 Requirements:
-    make
-    g++
+    make            (not necessary if you compile it yourself)
+    g++             (You can use other C ++ compilers, but you will have to compile yourself)
     ncurses
 
-To build the executable file change the directory to the desired version and run `make`.
-If you need to rebuild it, run the command `make clean` and continue with building.
+To build the executable file change the directory to the desired version and run 'make'.
+If you need to rebuild it, run the command 'make clean' and continue with building.
