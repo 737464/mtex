@@ -27,8 +27,6 @@ mtex is a minimalistic and lightweight text editor for unix systems. It runs in 
 To open a file in mtex at start, type:
     `mtex` `file`
 
-To open a file while the program is running, press `OPTION-SHIFT-O`
-
 To save a file while the program is running, press `OPTION-SHIFT-S`
 
 To exit the program press `OPTION-SHIFT-Q`
