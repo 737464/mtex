@@ -20,6 +20,7 @@ bool printing = true;                                                           
 int line = 0;                                                                   //buffer that stores scrolled lines
 bool show_info;
 
+
 void set_line(){
     line = win.cypos - win.height + 2;
     if(line < 0){
@@ -38,6 +39,8 @@ void setup(){
     win.print_text(0, 1, &text);
     win.set_cursor(0, 1);
 }
+
+
 
 void display(){
     if(printing){
@@ -61,6 +64,8 @@ void display(){
     }
 }
 
+
+
 bool rename(int x, bool pass_value){
     int buffer = x;
     int old_cxpos = win.cxpos;
@@ -70,10 +75,11 @@ bool rename(int x, bool pass_value){
     if(pass_value){
         win.cxpos = buffer;
     }
+    bool mouse_clicked_elsewhere = false;
 
     win.set_cursor(win.cxpos, 0);
 
-    while(win.get() != LF){
+    while(win.get() != LF and !mouse_clicked_elsewhere){
 
         win.get_event();
 
@@ -115,6 +121,22 @@ bool rename(int x, bool pass_value){
                             win.cxpos = name_buffer.size();
                         }
                     }
+                    else{
+                        mouse_clicked_elsewhere = true;
+                        if(win.mypos-1+line < text.size()){
+                            if(win.mxpos < text.get_size(win.mypos-1+line)){
+                                old_cxpos = win.mxpos;                          //overwrite
+                            }
+                            else{
+                                old_cxpos = text.get_size(win.mypos-1+line);
+                            }
+                            old_cypos = win.mypos-1+line;
+                        }
+                        else{
+                            old_cypos = text.size()-1;
+                            old_cxpos = text.get_size(old_cypos);
+                        }
+                    }
                 }
             }
         }
@@ -144,6 +166,9 @@ bool rename(int x, bool pass_value){
     win.cypos = old_cypos;
     return true;
 }
+
+
+
 
 void check(){
     printing = true;
@@ -241,7 +266,7 @@ void check(){
             if(win.mouse.bstate & BUTTON1_CLICKED){
                 win.mxpos = win.mouse.x;
                 win.mypos = win.mouse.y+line;
-                if(win.mypos <= text.size() and win.mypos > 0){
+                if(win.mypos+line <= text.size() and win.mypos-line > 0){
                     if(win.mxpos < text.get_size(win.mypos-1)){                 //e.g.: 6 < text.get_size(1-1)
                         win.cxpos = win.mxpos;                                  //                          ^because of first line being file name
                         win.cypos = win.mypos-1;
@@ -253,7 +278,7 @@ void check(){
                         lxpos = win.cxpos;
                     }
                 }
-                else if(win.mypos == 0){
+                else if(win.mypos-line == 0){
                     if(win.mxpos < file.get_name().size()){
                     rename(win.mxpos, true);
                     }
@@ -298,12 +323,18 @@ void check(){
     set_line();
 }
 
+
+
+
 void run(){
     win.get_event();
     check();
     display();
     win.set_cursor(win.cxpos, win.cypos+1-line);                               //+1 because of first line displaying filename
 }
+
+
+
 
 std::vector<std::string> str_to_vecstr(std::string str){
     std::string buffer = "";
