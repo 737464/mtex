@@ -43,7 +43,7 @@ hide press it again.
 
 To rename the file click on the `file name`, the `line with the file name` or
 press `OPTION-SHIFT-R`. If you want to cancel renaming press `ESC`, if you want
-to confirm the new name press `RETURN`.
+to confirm the new name press `RETURN` or `click on the text with your cursor`.
 
 To exit the program press `OPTION-SHIFT-Q`.
 
