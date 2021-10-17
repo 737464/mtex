@@ -28,6 +28,7 @@ General:
         - src - 16.08.2021       @ 737464
         - README.md - 16.08.2021 @ 737464
     Changed:
+        - README.md - 17.08.2021 @ 737464
     Deprecated:
     Removed:
 
@@ -37,12 +38,14 @@ Unreleased:
     - Add file menu [2]
     - Add file tabs [1]
     - Fix flickering of text while scaling [3]
-    - Add scrolling [3]
-    - Add file renaming
-    - Fix cursor moving [3]
+    - Add mouse scrolling [1]
+    - Add file renaming [1]
+    - Add selection tool [1]
+    - Add extended ASCII support [1]
+    - Change display system, line->char [1]
 
 Version 0.0 - 16.08.2021
-    Subversion 0.1 - 16.08-2021 @ 737464
+    Subversion 0.9 - 16.08-2021 @ 737464
         Added:
             - main.cpp
             - definitions.hpp
@@ -54,3 +57,19 @@ Version 0.0 - 16.08.2021
         Deprecated:
         Removed:
         Fixed:
+
+Version 1.0 - 17.08.2021
+    Subversion 1.0 - 17.08.2021 @ 737464
+        Added:
+            - Cursor scrolling
+            - 'SOL' and 'FN_DELETE' definition
+            - Delete character after cursor
+            - function to text.hpp
+            - Possibility to show additional information
+        Changed:
+            - Text display function
+        Deprecated:
+        Removed:
+        Fixed:
+            - Cursor moving to wrong position
+            - Tab handling issue

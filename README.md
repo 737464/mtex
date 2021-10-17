@@ -24,9 +24,15 @@ mtex is a minimalistic and lightweight text editor for unix systems. It runs in 
 
 ## How to use mtex: ##
 
-To open a file in mtex at start, type:
-    `mtex` `file`
+To paste the content of the clipboard press `CMD-V`.
 
-To save a file while the program is running, press `OPTION-SHIFT-S`
+To delete the character behind the cursor press `FN-DELETE`.
 
-To exit the program press `OPTION-SHIFT-Q`
+To open a file in mtex at start, type: `mtex` `file`.
+
+To save a file while the program is running, press `OPTION-SHIFT-S`.
+
+To show current cursor position and more information press `OPTION-SHIFT-I`, to
+hide press it again.
+
+To exit the program press `OPTION-SHIFT-Q`.
