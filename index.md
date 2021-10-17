@@ -1,9 +1,5 @@
 ## Welcome to the mtex site
 
-### What is mtex
-
-**mtex is a minimalistic text editor for unix system**
-
 ### Downloads
 
 [Download latest tag version](https://github.com/737464/mtex/releases/download/v.1.0.0/mtex)
