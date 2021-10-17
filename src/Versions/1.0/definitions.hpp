@@ -9,6 +9,7 @@
 #define OPTION_SHIFT_S 141
 #define OPTION_SHIFT_O 152
 #define OPTION_SHIFT_I 155
+#define OPTION_SHIFT_R 184
 #define OPTION_SHIFT_Q 187
 #define FN_DELETE 330
 

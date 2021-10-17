@@ -20,7 +20,6 @@ bool printing = true;                                                           
 int line = 0;                                                                   //buffer that stores scrolled lines
 bool show_info;
 
-
 void set_line(){
     line = win.cypos - win.height + 2;
     if(line < 0){
@@ -28,11 +27,122 @@ void set_line(){
     }
 }
 
+
+
+
+
+
 void setup(){
     win.setup();
     win.printl(0, 0, file.get_name());
     win.print_text(0, 1, &text);
     win.set_cursor(0, 1);
+}
+
+void display(){
+    if(printing){
+        win.clearwin();
+
+        if(show_info){
+            win.printl(0, 0, file.get_name() + " | C: " + std::to_string(win.cxpos) + "/" + std::to_string(text.get_size(win.cypos)) + ", L: " + std::to_string(win.cypos+1) + "/" + std::to_string(text.size()) + " | Total: " + std::to_string(text.get_total()));
+        }
+        else{
+            win.printl(0, 0, file.get_name());
+        }
+
+        int linebuffer = line;
+        for(int i = 0; i < win.height; i++){
+            win.printl(0, i+1, text.getline(linebuffer));
+            linebuffer++;
+            if(linebuffer == text.size()){
+                break;
+            }
+        }
+    }
+}
+
+bool rename(int x, bool pass_value){
+    int buffer = x;
+    int old_cxpos = win.cxpos;
+    int old_cypos = win.cypos;
+    std::string name_buffer = file.get_name();
+    win.cxpos = name_buffer.size();
+    if(pass_value){
+        win.cxpos = buffer;
+    }
+
+    win.set_cursor(win.cxpos, 0);
+
+    while(win.get() != LF){
+
+        win.get_event();
+
+        if(win.get() == ESC){
+            win.cxpos = old_cxpos;
+            win.cypos = old_cypos;
+            return false;
+        }
+        else if(win.get() == DELETE){
+            if(win.cxpos > 0){
+                name_buffer.erase(name_buffer.begin()+win.cxpos-1);
+                win.cxpos--;
+            }
+        }
+        else if(win.get() == FN_DELETE){
+            name_buffer.erase(name_buffer.begin()+win.cxpos);
+        }
+        else if(win.get() == KEY_RIGHT or win.get() == KEY_DOWN){
+            if(win.cxpos < name_buffer.size()){
+                win.cxpos++;
+            }
+        }
+        else if(win.get() == KEY_LEFT or win.get() == KEY_UP){
+            if(win.cxpos > 0){
+                win.cxpos--;
+            }
+        }
+        else if(win.get() == KEY_MOUSE){
+            if(getmouse(&win.mouse) == OK){
+                if(win.mouse.bstate & BUTTON1_CLICKED){
+                    win.mxpos = win.mouse.x;
+                    win.mypos = win.mouse.y;
+
+                    if(win.mypos == 0){
+                        if(win.mxpos <= name_buffer.size()){
+                            win.cxpos = win.mxpos;
+                        }
+                        else{
+                            win.cxpos = name_buffer.size();
+                        }
+                    }
+                }
+            }
+        }
+        else if(win.get() < 128){
+            name_buffer.insert(name_buffer.begin() + win.cxpos, win.get());
+            win.cxpos++;
+        }
+
+        win.clearwin();
+
+        win.printl(0, 0, name_buffer);
+
+        int linebuffer = line;
+        for(int i = 0; i < win.height; i++){
+            win.printl(0, i+1, text.getline(linebuffer));
+            linebuffer++;
+            if(linebuffer == text.size()){
+                break;
+            }
+        }
+
+        win.set_cursor(win.cxpos, 0);
+    }
+
+    file.set_name(name_buffer);
+    win.cxpos = old_cxpos;
+    win.cypos = old_cypos;
+    return true;
 }
 
 void check(){
@@ -144,13 +254,11 @@ void check(){
                     }
                 }
                 else if(win.mypos == 0){
-                    if(win.mxpos < text.get_size(win.mypos)){
-                        win.cxpos = win.mxpos;
-                        win.cypos = 0;
+                    if(win.mxpos < file.get_name().size()){
+                    rename(win.mxpos, true);
                     }
                     else{
-                        win.cxpos = text.get_size(win.mypos);
-                        win.cypos = 0;
+                    rename(file.get_name().size(), true);
                     }
                 }
                 else{
@@ -165,6 +273,9 @@ void check(){
     }
     else if(win.get() == OPTION_SHIFT_I){
         show_info ? show_info = false: show_info = true;
+    }
+    else if(win.get() == OPTION_SHIFT_R){
+        rename(0, false);
     }
     else if(win.get() == OPTION_SHIFT_Q){
         running = false;
@@ -190,25 +301,7 @@ void check(){
 void run(){
     win.get_event();
     check();
-    if(printing){
-        win.clearwin();
-
-        if(show_info){
-            win.printl(0, 0, file.get_name() + " | C: " + std::to_string(win.cxpos) + "/" + std::to_string(text.get_size(win.cypos)) + ", L: " + std::to_string(win.cypos+1) + "/" + std::to_string(text.size()) + " | Total: " + std::to_string(text.get_total()));
-        }
-        else{
-            win.printl(0, 0, file.get_name());
-        }
-
-        int linebuffer = line;
-        for(int i = 0; i < win.height; i++){
-            win.printl(0, i+1, text.getline(linebuffer));
-            linebuffer++;
-            if(linebuffer == text.size()){
-                break;
-            }
-        }
-    }
+    display();
     win.set_cursor(win.cxpos, win.cypos+1-line);                               //+1 because of first line displaying filename
 }
 
