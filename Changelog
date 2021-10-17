@@ -44,8 +44,9 @@ Unreleased:
     - Change display system, line->char [1]
     - Add coding features [1]
     - Add cmake, clang and GNU make support [1]
+    - Add line over multiple lines feature
 
-Version 0.0 - 16.10.2021
+Version 0.9 - 16.10.2021
     Subversion 0.9 - 16.10-2021 @ 737464
         Added:
             - main.cpp
