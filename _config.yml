@@ -1,2 +1,7 @@
 theme: jekyll-theme-cayman
 show_downloads: true
+
+title: [Welcome to the mtex site]
+
+show_downloads: ["true" or "false" (unquoted) to indicate whether to provide a download URL]
+google_analytics: [Your Google Analytics tracking ID]
