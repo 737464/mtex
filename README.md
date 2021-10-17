@@ -38,10 +38,10 @@ hide press it again.
 To exit the program press `OPTION-SHIFT-Q`.
 
 ## Version history ##
-Outdated versions:
+**Outdated versions:**
 
-`Version 0.9 -16.08.2021 | mtex beta`
+* `Version 0.9 -16.08.2021 | mtex beta`
 
-Current taged version:  `1.0.0 - 17.08.2021 | mtex release`
+**Current taged version:** `1.0.0 - 17.08.2021 | mtex release`
 
-Current version:        `1.0.1 - 17.10.2021`
+**Current version:** `1.0.1 - 17.10.2021`
