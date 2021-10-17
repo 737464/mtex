@@ -43,6 +43,7 @@ Unreleased:
     - Add selection tool [1]
     - Add extended ASCII support [1]
     - Change display system, line->char [1]
+    - Fix mouse cursor [3]
 
 Version 0.0 - 16.08.2021
     Subversion 0.9 - 16.08-2021 @ 737464
