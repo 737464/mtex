@@ -30,22 +30,22 @@ mtex is a minimalistic and lightweight text editor for unix systems. It runs in 
 
 ## How to use mtex: ##
 
-To paste the content of the clipboard press `CMD-V`.
+To **paste** the content of the clipboard press `CMD-V`.
 
-To delete the character behind the cursor press `FN-DELETE`.
+To **delete** the character behind the cursor press `FN-DELETE`.
 
-To open a file in mtex at start, type: `mtex` `file`.
+To **open** a file in mtex at start, type: `mtex` `file`.
 
-To save a file while the program is running, press `OPTION-SHIFT-S`.
+To **save** a file while the program is running, press `OPTION-SHIFT-S`.
 
-To show current cursor position and more information press `OPTION-SHIFT-I`, to
+To **show** current cursor position and more **information** press `OPTION-SHIFT-I`, to
 hide press it again.
 
-To rename the file click on the `file name`, the `line with the file name` or
+To **rename** the file click on the `file name`, the `line with the file name` or
 press `OPTION-SHIFT-R`. If you want to cancel renaming press `ESC`, if you want
 to confirm the new name press `RETURN` or `click on the text with your cursor`.
 
-To exit the program press `OPTION-SHIFT-Q`.
+To **exit** the program press `OPTION-SHIFT-Q`.
 
 ## Version history ##
 **Outdated versions:**
