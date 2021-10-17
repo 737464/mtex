@@ -8,4 +8,4 @@
 
 [Download latest source code (.tar.gz)](https://github.com/737464/mtex/archive/refs/tags/v.1.0.0.tar.gz)
 
-[Take me to all tag versions](https://github.com/737464/mtex/releases/tag/)
+[Take me to all tag versions](https://github.com/737464/mtex/releases)
