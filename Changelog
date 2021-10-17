@@ -43,6 +43,7 @@ Unreleased:
     - Add extended ASCII support [1]
     - Change display system, line->char [1]
     - Add coding features [1]
+    - Add cmake, clang and GNU make [1]
 
 Version 0.0 - 16.08.2021
     Subversion 0.9 - 16.08-2021 @ 737464
@@ -77,7 +78,6 @@ Version 1.0 - 17.08.2021
         Added:
         Changed:
         Deprecated:
-            - mouse input proccessing function
         Removed:
         Fixed:
             - mouse cursor position bug
