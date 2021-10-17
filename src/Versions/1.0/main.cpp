@@ -130,17 +130,27 @@ void check(){
         if(getmouse(&win.mouse) == OK){
             if(win.mouse.bstate & BUTTON1_CLICKED){
                 win.mxpos = win.mouse.x;
-                win.mypos = win.mouse.y-1;                                      //-1 because of first line displaying filename
-                if(win.mypos < text.size() and win.mypos > 0){
-                    if(win.mxpos < text.get_size(win.mypos)){
-                        win.cxpos = win.mxpos;
-                        win.cypos = win.mypos;
+                win.mypos = win.mouse.y+line;
+                if(win.mypos <= text.size() and win.mypos > 0){
+                    if(win.mxpos < text.get_size(win.mypos-1)){                 //e.g.: 6 < text.get_size(1-1)
+                        win.cxpos = win.mxpos;                                  //                          ^because of first line being file name
+                        win.cypos = win.mypos-1;
                         lxpos = win.cxpos;
                     }
                     else{
-                        win.cxpos = text.get_size(win.mypos);
-                        win.cypos = win.mypos;
+                        win.cxpos = text.get_size(win.mypos-1);
+                        win.cypos = win.mypos-1;
                         lxpos = win.cxpos;
+                    }
+                }
+                else if(win.mypos == 0){
+                    if(win.mxpos < text.get_size(win.mypos)){
+                        win.cxpos = win.mxpos;
+                        win.cypos = 0;
+                    }
+                    else{
+                        win.cxpos = text.get_size(win.mypos);
+                        win.cypos = 0;
                     }
                 }
                 else{
