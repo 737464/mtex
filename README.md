@@ -41,6 +41,10 @@ To save a file while the program is running, press `OPTION-SHIFT-S`.
 To show current cursor position and more information press `OPTION-SHIFT-I`, to
 hide press it again.
 
+To rename the file click on the `file name`, the `line with the file name` or
+press `OPTION_SHIFT_R`. If you want to cancel renaming press `ESC`, if you want
+to confirm the new name press `RETURN`.
+
 To exit the program press `OPTION-SHIFT-Q`.
 
 ## Version history ##
