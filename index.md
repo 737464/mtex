@@ -1,5 +1,3 @@
-show_downloads: true
-
 ## Welcome to the mtex site
 
 #### Downloads
