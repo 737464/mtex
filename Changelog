@@ -22,13 +22,13 @@ Unreleased General:
 
 General:
     Added:
-        - LICENSE - 16.08.2021   @ 737464
-        - Changelog - 16.08.2021 @ 737464
-        - Buildinfo - 16.08.2021 @ 737464
+        - LICENSE - 16.10.2021   @ 737464
+        - Changelog - 16.10.2021 @ 737464
+        - Buildinfo - 16.10.2021 @ 737464
         - src - 16.08.2021       @ 737464
-        - README.md - 16.08.2021 @ 737464
+        - README.md - 16.10.2021 @ 737464
     Changed:
-        - README.md - 17.08.2021 @ 737464
+        - README.md - 17.10.2021 @ 737464
     Deprecated:
     Removed:
 
@@ -45,8 +45,8 @@ Unreleased:
     - Add coding features [1]
     - Add cmake, clang and GNU make [1]
 
-Version 0.0 - 16.08.2021
-    Subversion 0.9 - 16.08-2021 @ 737464
+Version 0.0 - 16.10.2021
+    Subversion 0.9 - 16.10-2021 @ 737464
         Added:
             - main.cpp
             - definitions.hpp
@@ -59,8 +59,8 @@ Version 0.0 - 16.08.2021
         Removed:
         Fixed:
 
-Version 1.0 - 17.08.2021
-    Subversion 1.0 - 17.08.2021 @ 737464
+Version 1.0 - 17.10.2021
+    Subversion 1.0 - 17.10.2021 @ 737464
         Added:
             - Cursor scrolling
             - 'SOL' and 'FN_DELETE' definition
@@ -74,14 +74,14 @@ Version 1.0 - 17.08.2021
         Fixed:
             - Cursor moving to wrong position
             - Tab handling issue
-    Subversion 1.0.1 - 17.08-2021 @ 737464
+    Subversion 1.0.1 - 17.10.2021 @ 737464
         Added:
         Changed:
         Deprecated:
         Removed:
         Fixed:
             - mouse cursor position bug
-    Subversion 1.0.2 - 17.08.2021 @ 737464
+    Subversion 1.0.2 - 17.10.2021 @ 737464
         Added:
             - File renaming
             - Definitions
@@ -90,7 +90,7 @@ Version 1.0 - 17.08.2021
         Removed:
         Fixed:
 
-        Subversion 1.0.2.5 - 17.08.2021 @ 737464
+        Subversion 1.0.2.5 - 17.10.2021 @ 737464
             Added:
                 - new file name change confirm method
             Changed:
