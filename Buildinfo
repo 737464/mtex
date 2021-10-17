@@ -1,6 +1,6 @@
 Requirements:
     make            (not necessary if you compile it yourself)
-    g++             (You can use other C ++ compilers, but you will have to compile yourself)
+    g++             (You can use other C ++ compilers, but you will have to compile it yourself)
     ncurses
 
 To build the executable file change the directory to the desired version and run 'make'.

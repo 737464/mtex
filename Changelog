@@ -43,7 +43,6 @@ Unreleased:
     - Add selection tool [1]
     - Add extended ASCII support [1]
     - Change display system, line->char [1]
-    - Fix mouse cursor [3]
     - Add coding features [1]
 
 Version 0.0 - 16.08.2021
@@ -75,3 +74,11 @@ Version 1.0 - 17.08.2021
         Fixed:
             - Cursor moving to wrong position
             - Tab handling issue
+    Subversion 1.0.1 - 17.08-2021 @ 737464
+        Added:
+        Changed:
+        Deprecated:
+            - mouse position function
+        Removed:
+        Fixed:
+            - mouse cursor position bug
