@@ -1,5 +1,7 @@
 ## Welcome to the mtex site
 
+[Download latest tag version](https://github.com/737464/mtex/releases/download/v.1.0.0/mtex)
+
 ### Downloads
 
 [Download latest tag version](https://github.com/737464/mtex/releases/download/v.1.0.0/mtex)
