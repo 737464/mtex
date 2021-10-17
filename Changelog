@@ -43,7 +43,7 @@ Unreleased:
     - Add extended ASCII support [1]
     - Change display system, line->char [1]
     - Add coding features [1]
-    - Add cmake, clang and GNU make [1]
+    - Add cmake, clang and GNU make support [1]
 
 Version 0.0 - 16.10.2021
     Subversion 0.9 - 16.10-2021 @ 737464
@@ -81,7 +81,7 @@ Version 1.0 - 17.10.2021
         Removed:
         Fixed:
             - mouse cursor position bug
-            
+
     Subversion 1.0.2 - 17.10.2021 @ 737464
         Added:
             - File renaming
