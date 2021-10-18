@@ -29,6 +29,7 @@ Unreleased:
     - Add cmake, clang and GNU make support [1]
     - Add line over multiple lines feature [2]
     - Split features into more functions and headers [1]
+    - Create .mtexfh (mtex file history) to store informations [1]
 
 Version 0.9 - 16.10.2021
     Subversion 0.9 - 16.10-2021 @ 737464
