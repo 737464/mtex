@@ -50,7 +50,7 @@ To **rename** the file click on the `file name`, the `line with the file name` o
 press `OPTION-SHIFT-R`. If you want to cancel renaming press `ESC`, if you want
 to confirm the new name press `RETURN` or `click on the text with your cursor`.
 
-To **enable coding feature** press `OPTION-SHIFT-C`, to disable press it again.
+To **enable coding features** press `OPTION-SHIFT-C`, to disable press it again.
 
 To **exit** the program press `OPTION-SHIFT-Q`.
 
