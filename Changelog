@@ -106,3 +106,12 @@ Version 1.0 - 17.10.2021
             - LF function
         Removed:
         Fixed:
+
+    Subversion 1.0.5 - 18.10.2021 @ 737464
+        Added:
+            - Coding features
+        Changed:
+            - function "void check()"
+        Removed:
+        Fixed:
+            - Coding feature bugs

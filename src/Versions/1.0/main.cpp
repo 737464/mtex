@@ -172,13 +172,35 @@ bool rename(int x, bool pass_value){
 }
 
 
-int pos_not_space(_text_ * text, int line){
+int pos_not_char(_text_ * text, int line, char chr){
     int pos = 0;
     std::string buffer = text->getline(line);
 
     for(int i = 0; i < buffer.size(); i++){
-        if(buffer[i] != SPACE){
+        if(buffer[i] != chr){
             pos = i;
+            break;
+        }
+        else if(i == buffer.size()-1){
+            pos = i+1;
+            break;
+        }
+    }
+
+    return pos;
+}
+
+int pos_is_char(_text_ * text, int line, char chr){
+    int pos = 0;
+    std::string buffer = text->getline(line);
+
+    for(int i = 0; i < buffer.size(); i++){
+        if(buffer[i] == chr){
+            pos = i;
+            break;
+        }
+        else if(i == buffer.size()-1){
+            pos = i+1;
             break;
         }
     }
@@ -212,18 +234,35 @@ void check(){
     }
     else if(win.get() == LF){
         if(coding){
-            text.newline(win.cxpos, win.cypos);
-            if(text.getchr(win.cxpos-1, win.cypos) == '{'){
-                win.cxpos = 4;                                                  //4 = TAB size
+            if(text.getchr(win.cxpos-1, win.cypos) == '{' and text.getchr(win.cxpos, win.cypos) != '}'){
+                text.newline(win.cxpos, win.cypos);
+                win.cxpos = pos_not_char(&text, win.cypos, SPACE) + 4;           //+4 = TAB size
+                win.cypos++;
+                for(int spaces = 0; spaces < win.cxpos; spaces++){
+                    text.add(0, win.cypos, SPACE);
+                }
+            }
+            else if(text.getchr(win.cxpos-1, win.cypos) == '{' and text.getchr(win.cxpos, win.cypos) == '}'){
+                text.newline(win.cxpos, win.cypos);
+                text.newline(0, win.cypos+1);
+                for(int spaces1 = 0; spaces1 < pos_not_char(&text, win.cypos, SPACE)+4; spaces1++){
+                    text.add(0, win.cypos+1, SPACE);
+                }
+                for(int spaces2 = 0; spaces2 < pos_not_char(&text, win.cypos, SPACE); spaces2++){
+                    text.add(0, win.cypos+2, SPACE);
+                }
+                win.cxpos = pos_not_char(&text, win.cypos, SPACE)+4;
+                win.cypos++;
             }
             else{
-                win.cxpos = pos_not_space(&text, win.cypos);
+                text.newline(win.cxpos, win.cypos);
+                win.cxpos = pos_not_char(&text, win.cypos, SPACE);
+                for(int spaces = 0; spaces < win.cxpos; spaces++){
+                    text.add(0, win.cypos+1, SPACE);
+                }
+                win.cypos++;
+                lxpos = win.cxpos;
             }
-            for(int spaces = 0; spaces < win.cxpos; spaces++){
-                text.add(0, win.cypos+1, SPACE);
-            }
-            win.cypos++;
-            lxpos = win.cxpos;
         }
         else{
             text.newline(win.cxpos, win.cypos);
