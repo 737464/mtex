@@ -25,11 +25,12 @@ Unreleased:
     - Add mouse scrolling [1]
     - Add selection tool [1]
     - Add extended ASCII support [1]
-    - Change display system, line->char [1]
+    - Change display system [3]
     - Add cmake, clang and GNU make support [1]
     - Add line over multiple lines feature [2]
     - Split features into more functions and headers [1]
     - Create .mtexfh (mtex file history) to store informations [1]
+    - Change scrolling system [2]
 
 Version 0.9 - 16.10.2021
     Subversion 0.9 - 16.10-2021 @ 737464

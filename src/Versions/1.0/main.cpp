@@ -417,12 +417,11 @@ void check(){
 
 
 
-
 void run(){
     win.get_event();
     check();
     display();
-    win.set_cursor(win.cxpos, win.cypos+1-line);                               //+1 because of first line displaying filename
+    win.set_cursor(win.cxpos, win.cypos+1-line);                                //+1 beacause of first line displaying filename
 }
 
 
