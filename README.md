@@ -1,6 +1,6 @@
 # mtex
 
-## Minimalistic Text Editor for Unix (mtex) ##
+## Minimalistic Text Editor for Unix ##
 
 
 <p align="center">
@@ -13,8 +13,10 @@ mtex is a minimalistic and lightweight text editor for unix systems. It runs in 
 ## What does it support? ##
 
 - [x] Fast writing
-- [x] Reading text files
-- [x] Mouse support
+- [x] .txt files
+- [x] Mouse input
+- [x] Simple coding
+- [ ] Multiple files (coming soon)
 
 ## Images ##
 
@@ -49,7 +51,7 @@ To **enable coding feature** press `OPTION-SHIFT-C`, to disable press it again.
 
 To **exit** the program press `OPTION-SHIFT-Q`.
 
-## Version history ##
+## Versions ##
 **Outdated versions:**
 
 * `Version 0.9 - 16.10.2021 | mtex beta`
