@@ -75,14 +75,17 @@ bool rename(int x, bool pass_value){
     if(pass_value){
         win.cxpos = buffer;
     }
-    bool mouse_clicked_elsewhere = false;
+    bool renaming = true;
 
     win.set_cursor(win.cxpos, 0);
 
-    while(win.get() != LF and !mouse_clicked_elsewhere){
+    while(renaming){
 
         win.get_event();
 
+        if(win.get() == LF){
+            renaming = false;
+        }
         if(win.get() == ESC){
             win.cxpos = old_cxpos;
             win.cypos = old_cypos;
@@ -122,7 +125,7 @@ bool rename(int x, bool pass_value){
                         }
                     }
                     else{
-                        mouse_clicked_elsewhere = true;
+                        renaming = false;
                         if(win.mypos-1+line < text.size()){
                             if(win.mxpos < text.get_size(win.mypos-1+line)){
                                 old_cxpos = win.mxpos;                          //overwrite
