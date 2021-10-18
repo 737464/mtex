@@ -18,22 +18,6 @@ Version [Version number (e.g. 1.0)] - [Started Release Date]
 
 #Changelog
 
-Unreleased General:
-
-General:
-    Added:
-        - LICENSE - 16.10.2021   @ 737464
-        - Changelog - 16.10.2021 @ 737464
-        - Buildinfo - 16.10.2021 @ 737464
-        - src - 16.08.2021       @ 737464
-        - README.md - 16.10.2021 @ 737464
-    Changed:
-        - README.md - 17.10.2021 @ 737464
-    Deprecated:
-    Removed:
-
-
-
 Unreleased:
     - Add file menu [2]
     - Add file tabs [1]
@@ -42,10 +26,8 @@ Unreleased:
     - Add selection tool [1]
     - Add extended ASCII support [1]
     - Change display system, line->char [1]
-    - Add coding features [1]
     - Add cmake, clang and GNU make support [1]
-    - Add line over multiple lines feature
-    - Fix renaming bug
+    - Add line over multiple lines feature [2]
 
 Version 0.9 - 16.10.2021
     Subversion 0.9 - 16.10-2021 @ 737464
@@ -99,3 +81,19 @@ Version 1.0 - 17.10.2021
             Changed:
             Removed:
             Fixed:
+
+    Subversion 1.0.3 - 18.10.2021 @ 737464
+        Added:
+            - Definition
+        Changed:
+        Removed:
+        Fixed:
+            - renaming bug
+
+    Subversion 1.0.4 - 18.10.2021 @ 737464
+        Added:
+            - Coding feature
+        Changed:
+            - Info
+        Removed:
+        Fixed:

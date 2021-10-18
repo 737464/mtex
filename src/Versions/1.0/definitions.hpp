@@ -5,7 +5,9 @@
 #define TAB 9
 #define LF 10
 #define ESC 27
+#define SPACE 32
 #define DELETE 127
+#define OPTION_SHIFT_C 135
 #define OPTION_SHIFT_S 141
 #define OPTION_SHIFT_O 152
 #define OPTION_SHIFT_I 155

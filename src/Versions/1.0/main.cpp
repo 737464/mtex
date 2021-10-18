@@ -19,6 +19,7 @@ int lxpos;                                                                      
 bool printing = true;                                                           //false if screen is resized or font is scaled
 int line = 0;                                                                   //buffer that stores scrolled lines
 bool show_info;
+bool coding = false;
 
 
 void set_line(){
@@ -47,7 +48,7 @@ void display(){
         win.clearwin();
 
         if(show_info){
-            win.printl(0, 0, file.get_name() + " | C: " + std::to_string(win.cxpos) + "/" + std::to_string(text.get_size(win.cypos)) + ", L: " + std::to_string(win.cypos+1) + "/" + std::to_string(text.size()) + " | Total: " + std::to_string(text.get_total()));
+            win.printl(0, 0, file.get_name() + " | C: " + std::to_string(win.cxpos) + "/" + std::to_string(text.get_size(win.cypos)) + ", L: " + std::to_string(win.cypos+1) + "/" + std::to_string(text.size()) + " | Total: " + std::to_string(text.get_total()) + (coding ? " | [C] " : ""));
         }
         else{
             win.printl(0, 0, file.get_name());
@@ -86,7 +87,7 @@ bool rename(int x, bool pass_value){
         if(win.get() == LF){
             renaming = false;
         }
-        if(win.get() == ESC){
+        else if(win.get() == ESC){
             win.cxpos = old_cxpos;
             win.cypos = old_cypos;
             return false;
@@ -171,6 +172,19 @@ bool rename(int x, bool pass_value){
 }
 
 
+int pos_not_space(_text_ * text, int line){
+    int pos = 0;
+    std::string buffer = text->getline(line);
+
+    for(int i = 0; i < buffer.size(); i++){
+        if(buffer[i] != SPACE){
+            pos = i;
+            break;
+        }
+    }
+
+    return pos;
+}
 
 
 void check(){
@@ -197,10 +211,21 @@ void check(){
         win.cxpos += 4;
     }
     else if(win.get() == LF){
-        text.newline(win.cxpos, win.cypos);
-        win.cxpos = 0;
-        win.cypos++;
-        lxpos = 0;
+        if(coding){
+            text.newline(win.cxpos, win.cypos);
+            win.cxpos = pos_not_space(&text, win.cypos);
+            for(int spaces = 0; spaces < win.cxpos; spaces++){
+                text.add(0, win.cypos+1, SPACE);
+            }
+            win.cypos++;
+            lxpos = 0;
+        }
+        else{
+            text.newline(win.cxpos, win.cypos);
+            win.cxpos = 0;
+            win.cypos++;
+            lxpos = 0;
+        }
     }
     else if(win.get() == KEY_UP){
         if(win.cypos > 0){
@@ -295,6 +320,9 @@ void check(){
                 }
             }
         }
+    }
+    else if(win.get() == OPTION_SHIFT_C){
+        coding ? coding = false : coding = true;
     }
     else if(win.get() == OPTION_SHIFT_S){
         file.write(text.get_text());
