@@ -1,6 +1,6 @@
 # mtex
 
-## Minimalistic Text Editor for Unix ##
+## Minimalistic Text Editor for Unix Systems##
 
 
 <p align="center">
