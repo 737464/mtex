@@ -54,6 +54,15 @@ public:
         return false;
     }
 
+    char getchr(int pos, int line){
+        if(line < text.size()){
+            if(pos < text[line].size()){
+                return text[line][pos];
+            }
+        }
+        return ' ';
+    }
+
     std::string get_text(){
         std::string retstr;                                                     //string to be returned from function
         for(int line = 0; line < text.size(); line++){

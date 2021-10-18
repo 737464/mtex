@@ -213,12 +213,17 @@ void check(){
     else if(win.get() == LF){
         if(coding){
             text.newline(win.cxpos, win.cypos);
-            win.cxpos = pos_not_space(&text, win.cypos);
+            if(text.getchr(win.cxpos-1, win.cypos) == '{'){
+                win.cxpos = 4;                                                  //4 = TAB size
+            }
+            else{
+                win.cxpos = pos_not_space(&text, win.cypos);
+            }
             for(int spaces = 0; spaces < win.cxpos; spaces++){
                 text.add(0, win.cypos+1, SPACE);
             }
             win.cypos++;
-            lxpos = 0;
+            lxpos = win.cxpos;
         }
         else{
             text.newline(win.cxpos, win.cypos);
@@ -348,6 +353,23 @@ void check(){
     }
     else if(win.get() >= 0 and win.get() < 141){
         text.add(win.cxpos, win.cypos, win.get());
+        if(coding){
+            if(win.get() == '{'){
+                text.add(win.cxpos+1, win.cypos, '}');
+            }
+            else if(win.get() == '('){
+                text.add(win.cxpos+1, win.cypos, ')');
+            }
+            else if(win.get() == '['){
+                text.add(win.cxpos+1, win.cypos, ']');
+            }
+            else if(win.get() == '\''){
+                text.add(win.cxpos+1, win.cypos, '\'');
+            }
+            else if(win.get() == '\"'){
+                text.add(win.cxpos+1, win.cypos, '\"');
+            }
+        }
         win.cxpos++;
         lxpos = win.cxpos;
     }

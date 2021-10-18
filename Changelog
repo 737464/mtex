@@ -28,6 +28,7 @@ Unreleased:
     - Change display system, line->char [1]
     - Add cmake, clang and GNU make support [1]
     - Add line over multiple lines feature [2]
+    - Split features into more functions and headers [1]
 
 Version 0.9 - 16.10.2021
     Subversion 0.9 - 16.10-2021 @ 737464
@@ -95,5 +96,13 @@ Version 1.0 - 17.10.2021
             - Coding feature
         Changed:
             - Info
+        Removed:
+        Fixed:
+
+    Subversion 1.0.4.5 - 18.10.2021 @ 737464
+        Added:
+            - Coding features
+        Changed:
+            - LF function
         Removed:
         Fixed:

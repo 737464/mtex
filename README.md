@@ -61,6 +61,6 @@ To **exit** the program press `OPTION-SHIFT-Q`.
 
 **Current tag version:** `1.0.0 - 17.10.2021 | mtex release`
 
-**Current version:** `1.0.4 - 18.10.2021`
+**Current version:** `1.0.4.5 - 18.10.2021`
 
 **Next planned tag version:** `1.0.5`
