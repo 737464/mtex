@@ -45,6 +45,8 @@ To **rename** the file click on the `file name`, the `line with the file name` o
 press `OPTION-SHIFT-R`. If you want to cancel renaming press `ESC`, if you want
 to confirm the new name press `RETURN` or `click on the text with your cursor`.
 
+To **enable coding feature** press `OPTION-SHIFT-C`, to disable press it again.
+
 To **exit** the program press `OPTION-SHIFT-Q`.
 
 ## Version history ##
@@ -54,4 +56,4 @@ To **exit** the program press `OPTION-SHIFT-Q`.
 
 **Current taged version:** `1.0.0 - 17.10.2021 | mtex release`
 
-**Current version:** `1.0.3 - 17.10.2021`
+**Current version:** `1.0.4 - 17.10.2021`
