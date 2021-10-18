@@ -45,6 +45,7 @@ Unreleased:
     - Add coding features [1]
     - Add cmake, clang and GNU make support [1]
     - Add line over multiple lines feature
+    - Fix renaming bug
 
 Version 0.9 - 16.10.2021
     Subversion 0.9 - 16.10-2021 @ 737464
