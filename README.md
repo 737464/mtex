@@ -55,7 +55,7 @@ To **enable coding feature** press `OPTION-SHIFT-C`, to disable press it again.
 To **exit** the program press `OPTION-SHIFT-Q`.
 
 ## Versions ##
-**Outdated versions:**
+**Outdated tag versions:**
 
 * `Version 0.9 - 16.10.2021 | mtex beta`
 
