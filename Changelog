@@ -21,7 +21,7 @@ Version [Version number (e.g. 1.0)] - [Started Release Date]
 Unreleased:
     - Add file menu [2]
     - Add file tabs [1]
-    - Fix flickering of text while scaling [3]
+    - Fix flickering of text while scaling [2]
     - Add mouse scrolling [1]
     - Add selection tool [1]
     - Add extended ASCII support [1]
