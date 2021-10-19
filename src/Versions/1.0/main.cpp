@@ -18,6 +18,7 @@ bool running = true;
 int lxpos;                                                                      //stores the last x pos (for changing lines)
 bool printing = true;                                                           //false if screen is resized or font is scaled
 int line = 0;                                                                   //buffer that stores scrolled lines
+int line_chars = 0;                                                             //buffer that stores amount of characters that go beyond the screen
 bool show_info;
 bool coding = false;
 
@@ -29,6 +30,12 @@ void set_line(){
     }
 }
 
+void set_line_chars(){
+    line_chars = win.cxpos - win.width + 1;
+    if(line_chars < 0){
+        line_chars = 0;
+    }
+}
 
 
 
@@ -39,6 +46,28 @@ void setup(){
     win.printl(0, 0, file.get_name());
     win.print_text(0, 1, &text);
     win.set_cursor(0, 1);
+}
+
+std::string get_substr(int start, int length, std::string str){
+    std::string get_substr_buffer = str;
+
+    if(start > get_substr_buffer.size() or start < 0){
+        get_substr_buffer = "";
+        return get_substr_buffer;
+    }
+    else{
+        if(length+start > get_substr_buffer.size() or length == 0){
+            get_substr_buffer.erase(get_substr_buffer.begin(), get_substr_buffer.begin()+start);
+            return get_substr_buffer;
+        }
+        else{
+            get_substr_buffer.erase(get_substr_buffer.begin(), get_substr_buffer.begin()+start);
+            get_substr_buffer.erase(get_substr_buffer.begin()+start+length, get_substr_buffer.end());
+            return get_substr_buffer;
+        }
+    }
+
+    return "";
 }
 
 
@@ -56,7 +85,7 @@ void display(){
 
         int linebuffer = line;
         for(int i = 0; i < win.height; i++){
-            win.printl(0, i+1, text.getline(linebuffer));
+            win.printl(0, i+1, get_substr(line_chars, win.width, text.getline(linebuffer)));
             linebuffer++;
             if(linebuffer == text.size()){
                 break;
@@ -283,10 +312,7 @@ void check(){
             }
         }
         else{
-            if(win.cxpos > 0){
-                win.cxpos--;
-                lxpos = win.cxpos;
-            }
+            win.cxpos = 0;
         }
     }
     else if(win.get() == KEY_DOWN){
@@ -301,10 +327,7 @@ void check(){
             }
         }
         else{
-            if(win.cxpos < text.get_size(win.cypos)){
-                win.cxpos++;
-                lxpos = win.cxpos;
-            }
+            win.cxpos = text.get_size(text.size()-1);
         }
     }
     else if(win.get() == KEY_RIGHT){
@@ -336,7 +359,7 @@ void check(){
     else if(win.get() == KEY_MOUSE){
         if(getmouse(&win.mouse) == OK){
             if(win.mouse.bstate & BUTTON1_CLICKED){
-                win.mxpos = win.mouse.x;
+                win.mxpos = win.mouse.x+line_chars;
                 win.mypos = win.mouse.y+line;
                 if(win.mypos+line <= text.size() and win.mypos-line > 0){
                     if(win.mxpos < text.get_size(win.mypos-1)){                 //e.g.: 6 < text.get_size(1-1)
@@ -413,6 +436,7 @@ void check(){
         lxpos = win.cxpos;
     }
     set_line();
+    set_line_chars();
 }
 
 
@@ -421,7 +445,7 @@ void run(){
     win.get_event();
     check();
     display();
-    win.set_cursor(win.cxpos, win.cypos+1-line);                                //+1 beacause of first line displaying filename
+    win.set_cursor(win.cxpos-line_chars, win.cypos+1-line);                     //+1 beacause of first line displaying filename
 }
 
 

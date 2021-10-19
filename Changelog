@@ -27,7 +27,6 @@ Unreleased:
     - Add extended ASCII support [1]
     - Change display system [3]
     - Add cmake, clang and GNU make support [1]
-    - Add line over multiple lines feature [2]
     - Split features into more functions and headers [1]
     - Create .mtexfh (mtex file history) to store informations [1]
     - Change scrolling system [2]
@@ -117,3 +116,11 @@ Version 1.0 - 17.10.2021
         Removed:
         Fixed:
             - Coding feature bugs
+
+    Subversion 1.0.6 - 19.10.2021 @ 737464
+        Added:
+        Changed:
+            - line displaying
+            - cursor movement
+        Removed:
+        Fixed:

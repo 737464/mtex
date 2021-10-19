@@ -35,6 +35,8 @@ public:
         keypad(stdscr, true);
         mousemask(ALL_MOUSE_EVENTS, NULL);
         clear();
+        width = COLS;
+        height = LINES;
     }
 
     void quit(){
