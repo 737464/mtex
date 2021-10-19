@@ -3,5 +3,13 @@ Requirements:
     g++             (You can use other C ++ compilers, but you will have to compile it yourself)
     ncurses
 
-To build the executable file change the directory to the desired version and run 'make'.
-If you need to rebuild it, run the command 'make clean' and continue with building.
+
+Building with make:
+    To build the executable file change the directory to the desired version and run 'make'.
+    If you need to rebuild it, run the command 'make clean' and continue with building.
+
+Building with g++:
+    g++ main.cpp -lncurses -o mtex
+
+Building with clang:
+    clang++ main.cpp -lncurses -o mtex

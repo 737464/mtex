@@ -12,8 +12,6 @@ _file_ file;
 
 
 
-
-
 bool running = true;
 int lxpos;                                                                      //stores the last x pos (for changing lines)
 bool printing = true;                                                           //false if screen is resized or font is scaled
@@ -21,6 +19,14 @@ int line = 0;                                                                   
 int line_chars = 0;                                                             //buffer that stores amount of characters that go beyond the screen
 bool show_info;
 bool coding = false;
+
+
+void is_error(bool set_error){
+    if(set_error){
+        running = false;
+        std::cout << "error [mtex--error message was set]\n ⌙ mtex could not start due to an error.\n ⌙ Please wait for a patch to be released." << std::endl;
+    }
+}
 
 
 void set_line(){
@@ -482,13 +488,18 @@ int main(int argc, const char * argv[]){
         text.set_text(str_to_vecstr(file.read()));
     }
 
-    setup();
+    is_error(true);
 
-    while(running){
-        run();
+    if(running){
+
+        setup();
+
+        while(running){
+            run();
+        }
+
+        win.quit();
     }
-
-    win.quit();
 
     return 0;
 }
