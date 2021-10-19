@@ -124,3 +124,10 @@ Version 1.0 - 17.10.2021
             - cursor movement
         Removed:
         Fixed:
+
+    Subversion 1.0.6.5 - 19.10.2021 @ 737464
+        Added:
+        Changed:
+        Removed:
+        Fixed:
+            - Cursor position (coding)

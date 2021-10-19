@@ -281,6 +281,7 @@ void check(){
                     text.add(0, win.cypos+2, SPACE);
                 }
                 win.cxpos = pos_not_char(&text, win.cypos, SPACE)+4;
+                lxpos = win.cxpos;
                 win.cypos++;
             }
             else{
