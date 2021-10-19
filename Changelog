@@ -30,7 +30,6 @@ Unreleased:
     - Split features into more functions and headers [1]
     - Create .mtexfh (mtex file history) to store informations [1]
     - Change scrolling system [2]
-    - Fix out_of_range bug [3]
 
 Version 0.9 - 16.10.2021
     Subversion 0.9 - 16.10-2021 @ 737464
@@ -133,9 +132,16 @@ Version 1.0 - 17.10.2021
         Fixed:
             - Cursor position (coding)
 
-    Subversion 1.0.8 - 19.10.1021 @ 737464
+    Subversion 1.0.7 - 19.10.1021 @ 737464
         Added:
             - error function
         Changed:
         Removed:
         Fixed:
+
+    Subversion 1.0.7.5 - 19.10.2021 @ 737464
+        Added:
+        Changed:
+        Removed:
+        Fixed:
+            - out_of_range bug

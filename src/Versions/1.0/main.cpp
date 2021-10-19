@@ -11,7 +11,6 @@ _file_ file;
 
 
 
-
 bool running = true;
 int lxpos;                                                                      //stores the last x pos (for changing lines)
 bool printing = true;                                                           //false if screen is resized or font is scaled
@@ -21,13 +20,13 @@ bool show_info;
 bool coding = false;
 
 
+
 void is_error(bool set_error){
     if(set_error){
         running = false;
         std::cout << "error [mtex--error message was set]\n ⌙ mtex could not start due to an error.\n ⌙ Please wait for a patch to be released." << std::endl;
     }
 }
-
 
 void set_line(){
     line = win.cypos - win.height + 2;
@@ -44,9 +43,6 @@ void set_line_chars(){
 }
 
 
-
-
-
 void setup(){
     win.setup();
     win.printl(0, 0, file.get_name());
@@ -57,26 +53,21 @@ void setup(){
 std::string get_substr(int start, int length, std::string str){
     std::string get_substr_buffer = str;
 
-    if(start > get_substr_buffer.size() or start < 0){
+    if(start >= get_substr_buffer.size() or start < 0){
         get_substr_buffer = "";
-        return get_substr_buffer;
     }
     else{
-        if(length+start > get_substr_buffer.size() or length == 0){
+        if(length+start >= get_substr_buffer.size() or length <= 0){
             get_substr_buffer.erase(get_substr_buffer.begin(), get_substr_buffer.begin()+start);
-            return get_substr_buffer;
         }
         else{
             get_substr_buffer.erase(get_substr_buffer.begin(), get_substr_buffer.begin()+start);
-            get_substr_buffer.erase(get_substr_buffer.begin()+start+length, get_substr_buffer.end());
-            return get_substr_buffer;
+            get_substr_buffer.erase(get_substr_buffer.begin()+length, get_substr_buffer.end());
         }
     }
 
-    return "";
+    return get_substr_buffer;
 }
-
-
 
 void display(){
     if(printing){
@@ -99,8 +90,6 @@ void display(){
         }
     }
 }
-
-
 
 bool rename(int x, bool pass_value){
     int buffer = x;
@@ -206,7 +195,6 @@ bool rename(int x, bool pass_value){
     return true;
 }
 
-
 int pos_not_char(_text_ * text, int line, char chr){
     int pos = 0;
     std::string buffer = text->getline(line);
@@ -242,7 +230,6 @@ int pos_is_char(_text_ * text, int line, char chr){
 
     return pos;
 }
-
 
 void check(){
     printing = true;
@@ -446,17 +433,12 @@ void check(){
     set_line_chars();
 }
 
-
-
 void run(){
     win.get_event();
     check();
     display();
     win.set_cursor(win.cxpos-line_chars, win.cypos+1-line);                     //+1 beacause of first line displaying filename
 }
-
-
-
 
 std::vector<std::string> str_to_vecstr(std::string str){
     std::string buffer = "";
@@ -488,7 +470,7 @@ int main(int argc, const char * argv[]){
         text.set_text(str_to_vecstr(file.read()));
     }
 
-    is_error(true);
+    is_error(false);
 
     if(running){
 
