@@ -9,7 +9,7 @@ _window_ win;
 _file_ file;
 
 
-std::string version_str = "1.0.8 (date=10.08.2021 stable=true tag=false)";
+std::string version_str = "1.0.8 (date=20.10.2021 stable=true tag=false)";
 
 
 
