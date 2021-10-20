@@ -15,7 +15,7 @@ mtex is a minimalistic and lightweight text editor for unix systems. It runs in 
 - [x] Fast writing
 - [x] .txt files
 - [x] Mouse input
-- [x] Simple coding
+- [x] Coding features
 - [ ] Multiple files (coming soon)
 
 ## Images ##
@@ -43,8 +43,12 @@ To **open** a file in mtex at start, type: `mtex` `file`.
 
 To **save** a file while the program is running, press `OPTION-SHIFT-S`.
 
-To **show** current cursor position and more **information** press `OPTION-SHIFT-I`, to
+To **show** current cursor position and more **text information** press `OPTION-SHIFT-I`, to
 hide press it again.
+
+To **show current version** press `OPTION-SHIFT-V`, to hide press it again.
+
+To **show license** press `OPTION-SHIFT-L`, to hide press it again.
 
 To **rename** the file click on the `file name`, the `line with the file name` or
 press `OPTION-SHIFT-R`. If you want to cancel renaming press `ESC`, if you want
@@ -62,6 +66,6 @@ To **exit** the program press `OPTION-SHIFT-Q`.
 
 **Current tag version:** `1.0.5 - 18.10.2021 | mtex mountain`
 
-**Current version:** `1.0.7.5 - 19.10.2021`
+**Current version:** `1.0.8 - 20.10.2021`
 
 **Next planned tag version:** `1.1.0`

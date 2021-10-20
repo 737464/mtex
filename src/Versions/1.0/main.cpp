@@ -9,6 +9,8 @@ _window_ win;
 _file_ file;
 
 
+std::string version_str = "1.0.8 (date=10.08.2021 stable=true tag=false)";
+
 
 
 bool running = true;
@@ -16,8 +18,10 @@ int lxpos;                                                                      
 bool printing = true;                                                           //false if screen is resized or font is scaled
 int line = 0;                                                                   //buffer that stores scrolled lines
 int line_chars = 0;                                                             //buffer that stores amount of characters that go beyond the screen
-bool show_info;
+bool show_info = false;
 bool coding = false;
+bool version = false;
+bool license = false;
 
 
 
@@ -41,7 +45,6 @@ void set_line_chars(){
         line_chars = 0;
     }
 }
-
 
 void setup(){
     win.setup();
@@ -73,12 +76,7 @@ void display(){
     if(printing){
         win.clearwin();
 
-        if(show_info){
-            win.printl(0, 0, file.get_name() + " | C: " + std::to_string(win.cxpos) + "/" + std::to_string(text.get_size(win.cypos)) + ", L: " + std::to_string(win.cypos+1) + "/" + std::to_string(text.size()) + " | Total: " + std::to_string(text.get_total()) + (coding ? " | [C] " : ""));
-        }
-        else{
-            win.printl(0, 0, file.get_name());
-        }
+        win.printl(0, 0, file.get_name() + (show_info ? " | C: " + std::to_string(win.cxpos) + "/" + std::to_string(text.get_size(win.cypos)) + ", L: " + std::to_string(win.cypos+1) + "/" + std::to_string(text.size()) + ", Total: " + std::to_string(text.get_total()) : "") + (coding ? " | [C]" : "") + (version ? " | Version " + version_str : "") + (license ? " | License: MIT Copyright (c) 2021 737464" : ""));
 
         int linebuffer = line;
         for(int i = 0; i < win.height; i++){
@@ -189,7 +187,9 @@ bool rename(int x, bool pass_value){
         win.set_cursor(win.cxpos, 0);
     }
 
-    file.set_name(name_buffer);
+    if(name_buffer.size() > 0){
+        file.set_name(name_buffer);
+    }
     win.cxpos = old_cxpos;
     win.cypos = old_cypos;
     return true;
@@ -382,8 +382,14 @@ void check(){
             }
         }
     }
+    else if(win.get() == OPTION_SHIFT_L){
+        license ? license = false : license = true;
+    }
     else if(win.get() == OPTION_SHIFT_C){
         coding ? coding = false : coding = true;
+    }
+    else if(win.get() == OPTION_SHIFT_V){
+        version ? version = false : version = true;
     }
     else if(win.get() == OPTION_SHIFT_S){
         file.write(text.get_text());
@@ -408,23 +414,82 @@ void check(){
         }
     }
     else if(win.get() >= 0 and win.get() < 141){
-        text.add(win.cxpos, win.cypos, win.get());
         if(coding){
             if(win.get() == '{'){
+                text.add(win.cxpos, win.cypos, win.get());
                 text.add(win.cxpos+1, win.cypos, '}');
             }
             else if(win.get() == '('){
+                text.add(win.cxpos, win.cypos, win.get());
                 text.add(win.cxpos+1, win.cypos, ')');
             }
             else if(win.get() == '['){
+                text.add(win.cxpos, win.cypos, win.get());
                 text.add(win.cxpos+1, win.cypos, ']');
             }
+
+            else if(win.get() == '}'){
+                if(win.cxpos > 0){
+                    if((text.getchr(win.cxpos-1, win.cypos) != '{' and text.getchr(win.cxpos, win.cypos) != '}') or (text.getchr(win.cxpos-1, win.cypos) != '{' and text.getchr(win.cxpos, win.cypos) == '}')){
+                        text.add(win.cxpos, win.cypos, '}');
+                    }
+                }
+                else{
+                    text.add(win.cxpos+1, win.cypos, '}');
+                }
+            }
+            else if(win.get() == ')'){
+                if(win.cxpos > 0){
+                    if((text.getchr(win.cxpos-1, win.cypos) != '(' and text.getchr(win.cxpos, win.cypos) != ')') or (text.getchr(win.cxpos-1, win.cypos) != '(' and text.getchr(win.cxpos, win.cypos) == ')')){
+                        text.add(win.cxpos, win.cypos, ')');
+                    }
+                }
+                else{
+                    text.add(win.cxpos+1, win.cypos, ')');
+                }
+            }
+            else if(win.get() == ']'){
+                if(win.cxpos > 0){
+                    if((text.getchr(win.cxpos-1, win.cypos) != '[' and text.getchr(win.cxpos, win.cypos) != ']') or (text.getchr(win.cxpos-1, win.cypos) != '[' and text.getchr(win.cxpos, win.cypos) == ']')){
+                        text.add(win.cxpos, win.cypos, ']');
+                    }
+                }
+                else{
+                    text.add(win.cxpos+1, win.cypos, ']');
+                }
+            }
+
             else if(win.get() == '\''){
-                text.add(win.cxpos+1, win.cypos, '\'');
+                if(win.cxpos > 0){
+                    if((text.getchr(win.cxpos-1, win.cypos) != '\'' and text.getchr(win.cxpos, win.cypos) != '\'') or (text.getchr(win.cxpos-1, win.cypos) == '\'' and text.getchr(win.cxpos, win.cypos) != '\'') or (text.getchr(win.cxpos-1, win.cypos) != '\'' and text.getchr(win.cxpos, win.cypos) == '\'')){
+                        text.add(win.cxpos, win.cypos, '\'');
+                        text.add(win.cxpos, win.cypos, '\'');
+                    }
+                }
+                else{
+                    text.add(win.cxpos, win.cypos, '\'');
+                    text.add(win.cxpos, win.cypos, '\'');
+                }
             }
             else if(win.get() == '\"'){
-                text.add(win.cxpos+1, win.cypos, '\"');
+                if(win.cxpos > 0){
+                    if((text.getchr(win.cxpos-1, win.cypos) != '\'' and text.getchr(win.cxpos, win.cypos) != '\'') or (text.getchr(win.cxpos-1, win.cypos) == '\'' and text.getchr(win.cxpos, win.cypos) != '\'') or (text.getchr(win.cxpos-1, win.cypos) != '\'' and text.getchr(win.cxpos, win.cypos) == '\'')){
+                        text.add(win.cxpos, win.cypos, '\'');
+                        text.add(win.cxpos, win.cypos, '\'');
+                    }
+                }
+                else{
+                    text.add(win.cxpos, win.cypos, '\'');
+                    text.add(win.cxpos, win.cypos, '\'');
+                }
             }
+
+            else{
+                text.add(win.cxpos, win.cypos, win.get());
+            }
+        }
+        else{
+            text.add(win.cxpos, win.cypos, win.get());
         }
         win.cxpos++;
         lxpos = win.cxpos;

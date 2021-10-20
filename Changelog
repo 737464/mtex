@@ -19,17 +19,15 @@ Version [Version number (e.g. 1.0)] - [Started Release Date]
 #Changelog
 
 Unreleased:
-    - Add file menu [2]
+    - Add file menu [1]
     - Add file tabs [1]
-    - Fix flickering of text while scaling [2]
-    - Add mouse scrolling [1]
-    - Add selection tool [1]
+    - Fix flickering of text while resizing font (cmd+/cmd-)[1]
+    - Add mouse scrolling [2]
+    - Add selection tool [2]
     - Add extended ASCII support [1]
-    - Change display system [3]
-    - Add cmake, clang and GNU make support [1]
     - Split features into more functions and headers [1]
     - Create .mtexfh (mtex file history) to store informations [1]
-    - Change scrolling system [2]
+    - Change scrolling system [1]
 
 Version 0.9 - 16.10.2021
     Subversion 0.9 - 16.10-2021 @ 737464
@@ -46,7 +44,8 @@ Version 0.9 - 16.10.2021
         Fixed:
 
 Version 1.0 - 17.10.2021
-    Subversion 1.0 - 17.10.2021 @ 737464
+
+    Subversion 1.0.0 - 17.10.2021 @ 737464
         Added:
             - Cursor scrolling
             - 'SOL' and 'FN_DELETE' definition
@@ -60,6 +59,7 @@ Version 1.0 - 17.10.2021
         Fixed:
             - Cursor moving to wrong position
             - Tab handling issue
+
     Subversion 1.0.1 - 17.10.2021 @ 737464
         Added:
         Changed:
@@ -100,13 +100,13 @@ Version 1.0 - 17.10.2021
         Removed:
         Fixed:
 
-    Subversion 1.0.4.5 - 18.10.2021 @ 737464
-        Added:
-            - Coding features
-        Changed:
-            - LF function
-        Removed:
-        Fixed:
+        Subversion 1.0.4.5 - 18.10.2021 @ 737464
+            Added:
+                - Coding features
+            Changed:
+                - LF function
+            Removed:
+            Fixed:
 
     Subversion 1.0.5 - 18.10.2021 @ 737464
         Added:
@@ -125,12 +125,12 @@ Version 1.0 - 17.10.2021
         Removed:
         Fixed:
 
-    Subversion 1.0.6.5 - 19.10.2021 @ 737464
-        Added:
-        Changed:
-        Removed:
-        Fixed:
-            - Cursor position (coding)
+        Subversion 1.0.6.5 - 19.10.2021 @ 737464
+            Added:
+            Changed:
+            Removed:
+            Fixed:
+                - Cursor position (coding)
 
     Subversion 1.0.7 - 19.10.1021 @ 737464
         Added:
@@ -139,9 +139,20 @@ Version 1.0 - 17.10.2021
         Removed:
         Fixed:
 
-    Subversion 1.0.7.5 - 19.10.2021 @ 737464
+        Subversion 1.0.7.5 - 19.10.2021 @ 737464
+            Added:
+            Changed:
+            Removed:
+            Fixed:
+                - out_of_range bug
+
+    Subversion 1.0.8 - 20.10.2021 @ 737464
         Added:
+            - Coding features
+            - Definitions
+            - Information
+            - Empty file name preventer
         Changed:
+            - Character adding function
         Removed:
         Fixed:
-            - out_of_range bug
