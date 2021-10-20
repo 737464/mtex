@@ -156,3 +156,10 @@ Version 1.0 - 17.10.2021
             - Character adding function
         Removed:
         Fixed:
+
+    Subversion 1.0.9 - 20.10.2021 @ 737464
+        Added:
+        Changed:
+            - displaying of characters (line and line_chars function)
+        Removed:
+        Fixed:

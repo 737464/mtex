@@ -9,7 +9,7 @@ _window_ win;
 _file_ file;
 
 
-std::string version_str = "1.0.8 (date=20.10.2021 stable=true tag=false)";
+std::string version_str = "1.0.9 (date=20.10.2021 stable=true tag=false)";
 
 
 
@@ -33,18 +33,23 @@ void is_error(bool set_error){
 }
 
 void set_line(){
-    line = win.cypos - win.height + 2;
-    if(line < 0){
-        line = 0;
+    if(win.cypos - line < 0){
+        line--;
+    }
+    else if(win.cypos - line + 2 > win.height){
+        line++;
     }
 }
 
 void set_line_chars(){
-    line_chars = win.cxpos - win.width + 1;
-    if(line_chars < 0){
-        line_chars = 0;
+    if(win.cxpos - line_chars < 0){
+        line_chars -= (line_chars-win.cxpos);
+    }
+    else if(win.cxpos - line_chars > win.width - 1){
+        line_chars += (win.cxpos-line_chars-win.width+1);
     }
 }
+
 
 void setup(){
     win.setup();
@@ -76,7 +81,8 @@ void display(){
     if(printing){
         win.clearwin();
 
-        win.printl(0, 0, file.get_name() + (show_info ? " | C: " + std::to_string(win.cxpos) + "/" + std::to_string(text.get_size(win.cypos)) + ", L: " + std::to_string(win.cypos+1) + "/" + std::to_string(text.size()) + ", Total: " + std::to_string(text.get_total()) : "") + (coding ? " | [C]" : "") + (version ? " | Version " + version_str : "") + (license ? " | License: MIT Copyright (c) 2021 737464" : ""));
+        win.printl(0, 0, file.get_name());
+        win.printl(file.get_name().size(), 0, get_substr(0, win.width-file.get_name().size(), ((show_info ? " | C: " + std::to_string(win.cxpos) + "/" + std::to_string(text.get_size(win.cypos)) + ", L: " + std::to_string(win.cypos+1) + "/" + std::to_string(text.size()) + ", Total: " + std::to_string(text.get_total()) : "") + (coding ? " | [C]" : "") + (version ? " | Version " + version_str : "") + (license ? " | License: MIT Copyright (c) 2021 737464" : ""))));
 
         int linebuffer = line;
         for(int i = 0; i < win.height; i++){

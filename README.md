@@ -66,6 +66,6 @@ To **exit** the program press `OPTION-SHIFT-Q`.
 
 **Current tag version:** `1.0.5 - 18.10.2021 | mtex mountain`
 
-**Current version:** `1.0.8 - 20.10.2021`
+**Current version:** `1.0.9 - 20.10.2021`
 
 **Next planned tag version:** `1.1.0`
