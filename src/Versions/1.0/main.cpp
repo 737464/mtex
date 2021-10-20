@@ -9,7 +9,7 @@ _window_ win;
 _file_ file;
 
 
-std::string version_str = "1.0.9 (date=20.10.2021 stable=true tag=false)";
+std::string version_str = "1.0.9.5 (date=20.10.2021 stable=true tag=false)";
 
 
 
@@ -436,32 +436,32 @@ void check(){
 
             else if(win.get() == '}'){
                 if(win.cxpos > 0){
-                    if((text.getchr(win.cxpos-1, win.cypos) != '{' and text.getchr(win.cxpos, win.cypos) != '}') or (text.getchr(win.cxpos-1, win.cypos) != '{' and text.getchr(win.cxpos, win.cypos) == '}')){
+                    if((text.getchr(win.cxpos-1, win.cypos) != '{' and text.getchr(win.cxpos, win.cypos) != '}') or (text.getchr(win.cxpos-1, win.cypos) != '{' and text.getchr(win.cxpos, win.cypos) == '}') or (text.getchr(win.cxpos-1, win.cypos) == '{' and text.getchr(win.cxpos, win.cypos) != '}')){
                         text.add(win.cxpos, win.cypos, '}');
                     }
                 }
                 else{
-                    text.add(win.cxpos+1, win.cypos, '}');
+                    text.add(win.cxpos, win.cypos, '}');
                 }
             }
             else if(win.get() == ')'){
                 if(win.cxpos > 0){
-                    if((text.getchr(win.cxpos-1, win.cypos) != '(' and text.getchr(win.cxpos, win.cypos) != ')') or (text.getchr(win.cxpos-1, win.cypos) != '(' and text.getchr(win.cxpos, win.cypos) == ')')){
+                    if((text.getchr(win.cxpos-1, win.cypos) != '(' and text.getchr(win.cxpos, win.cypos) != ')') or (text.getchr(win.cxpos-1, win.cypos) != '(' and text.getchr(win.cxpos, win.cypos) == ')') or (text.getchr(win.cxpos-1, win.cypos) == '(' and text.getchr(win.cxpos, win.cypos) != ')')){
                         text.add(win.cxpos, win.cypos, ')');
                     }
                 }
                 else{
-                    text.add(win.cxpos+1, win.cypos, ')');
+                    text.add(win.cxpos, win.cypos, ')');
                 }
             }
             else if(win.get() == ']'){
                 if(win.cxpos > 0){
-                    if((text.getchr(win.cxpos-1, win.cypos) != '[' and text.getchr(win.cxpos, win.cypos) != ']') or (text.getchr(win.cxpos-1, win.cypos) != '[' and text.getchr(win.cxpos, win.cypos) == ']')){
+                    if((text.getchr(win.cxpos-1, win.cypos) != '[' and text.getchr(win.cxpos, win.cypos) != ']') or (text.getchr(win.cxpos-1, win.cypos) != '[' and text.getchr(win.cxpos, win.cypos) == ']') or (text.getchr(win.cxpos-1, win.cypos) == '[' and text.getchr(win.cxpos, win.cypos) != ']')){
                         text.add(win.cxpos, win.cypos, ']');
                     }
                 }
                 else{
-                    text.add(win.cxpos+1, win.cypos, ']');
+                    text.add(win.cxpos, win.cypos, ']');
                 }
             }
 
@@ -479,14 +479,14 @@ void check(){
             }
             else if(win.get() == '\"'){
                 if(win.cxpos > 0){
-                    if((text.getchr(win.cxpos-1, win.cypos) != '\'' and text.getchr(win.cxpos, win.cypos) != '\'') or (text.getchr(win.cxpos-1, win.cypos) == '\'' and text.getchr(win.cxpos, win.cypos) != '\'') or (text.getchr(win.cxpos-1, win.cypos) != '\'' and text.getchr(win.cxpos, win.cypos) == '\'')){
-                        text.add(win.cxpos, win.cypos, '\'');
-                        text.add(win.cxpos, win.cypos, '\'');
+                    if((text.getchr(win.cxpos-1, win.cypos) != '\"' and text.getchr(win.cxpos, win.cypos) != '\"') or (text.getchr(win.cxpos-1, win.cypos) == '\"' and text.getchr(win.cxpos, win.cypos) != '\"') or (text.getchr(win.cxpos-1, win.cypos) != '\"' and text.getchr(win.cxpos, win.cypos) == '\"')){
+                        text.add(win.cxpos, win.cypos, '\"');
+                        text.add(win.cxpos, win.cypos, '\"');
                     }
                 }
                 else{
-                    text.add(win.cxpos, win.cypos, '\'');
-                    text.add(win.cxpos, win.cypos, '\'');
+                    text.add(win.cxpos, win.cypos, '\"');
+                    text.add(win.cxpos, win.cypos, '\"');
                 }
             }
 
