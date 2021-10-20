@@ -48,7 +48,11 @@ hide press it again.
 
 To **show current version** press `OPTION-SHIFT-V`, to hide press it again.
 
-To **show license** press `OPTION-SHIFT-L`, to hide press it again.
+To **show license preview** press `OPTION-SHIFT-L`, to hide press it again.
+
+To **show complete license** type `mtex -license` when starting mtex.
+
+To **show acknowledgement(s)** type `mtex -acknowledgement` when starting mtex.
 
 To **rename** the file click on the `file name`, the `line with the file name` or
 press `OPTION-SHIFT-R`. If you want to cancel renaming press `ESC`, if you want
@@ -66,6 +70,6 @@ To **exit** the program press `OPTION-SHIFT-Q`.
 
 **Current tag version:** `1.0.5 - 18.10.2021 | mtex mountain`
 
-**Current version:** `1.0.9.5 - 20.10.2021`
+**Current version:** `1.0.9.6 - 20.10.2021`
 
 **Next planned tag version:** `1.1.0`

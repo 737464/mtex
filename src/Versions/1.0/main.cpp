@@ -537,6 +537,64 @@ int main(int argc, const char * argv[]){
     file.set_name("Unnamed.txt");
 
     if(argc > 1){                                                               //open passed files
+        if(strcmp(argv[1], "-license") == 0){
+            std::cout << "\nMIT License\n\n"
+
+            "Copyright (c) 2021 737464\n\n"
+
+            "Permission is hereby granted, free of charge, to any person obtaining a copy\n"
+            "of this software and associated documentation files (the \"Software\"), to deal\n"
+            "in the Software without restriction, including without limitation the rights\n"
+            "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n"
+            "copies of the Software, and to permit persons to whom the Software is\n"
+            "furnished to do so, subject to the following conditions:\n\n"
+
+            "The above copyright notice and this permission notice shall be included in all\n"
+            "copies or substantial portions of the Software.\n\n"
+
+            "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n"
+            "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n"
+            "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n"
+            "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n"
+            "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n"
+            "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n"
+            "SOFTWARE.\n" << std::endl;
+            return 1;
+        }
+        else if(strcmp(argv[1], "-acknowledgement") == 0){
+            std::cout << "\nAcknowledgment(s)\n"
+            "Portions of this Software may utilize the following copyrighted material, the use of which is hereby acknowledged:\n\n"
+
+            "Free Software Foundation, Inc. and Thomas E. Dickey - (ncurses library)\n\n"
+
+            "Copyright 2018-2019,2020 Thomas E. Dickey\n"
+            "Copyright 1998-2017,2018 Free Software Foundation, Inc.\n\n"
+
+            "Permission is hereby granted, free of charge, to any person obtaining a\n"
+            "copy of this software and associated documentation files (the\n"
+            "\"Software\"), to deal in the Software without restriction, including\n"
+            "without limitation the rights to use, copy, modify, merge, publish,\n"
+            "distribute, distribute with modifications, sublicense, and/or sell\n"
+            "copies of the Software, and to permit persons to whom the Software is\n"
+            "furnished to do so, subject to the following conditions:\n\n"
+
+            "The above copyright notice and this permission notice shall be included\n"
+            "in all copies or substantial portions of the Software.\n\n"
+
+            "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\n"
+            "OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\n"
+            "MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\n"
+            "IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,\n"
+            "DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR\n"
+            "OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR\n"
+            "THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n"
+
+            "Except as contained in this notice, the name(s) of the above copyright\n"
+            "holders shall not be used in advertising or otherwise to promote the\n"
+            "sale, use or other dealings in this Software without prior written\n"
+            "authorization.\n" << std::endl;
+            return 1;
+        }
         file.set_name(argv[1]);
         text.set_text(str_to_vecstr(file.read()));
     }

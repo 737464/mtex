@@ -170,3 +170,11 @@ Version 1.0 - 17.10.2021
             Removed:
             Fixed:
                 - Coding feature bug
+
+        Subversion 1.0.9.6 - 20.10.2021 @ 737464
+            Added:
+                - show license with parameter "-license"
+                - show acknowledgement with parameter "-acknowledgement"
+            Changed:
+            Removed:
+            Fixed:
