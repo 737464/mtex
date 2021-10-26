@@ -1,6 +1,6 @@
 # mtex
 
-## Minimalistic Text Editor for Unix Systems ##
+## Minimalistic Text Editor ##
 
 
 <p align="center">
@@ -8,7 +8,7 @@
 </p>
 
 
-mtex is a minimalistic and lightweight text editor for unix systems. It runs in the terminal which makes it a cool feature for short notes or writing your ideas down while coding.
+mtex is a minimalistic and lightweight text editor. It runs in the terminal which makes it a cool feature for short notes or writing your ideas down while coding.
 
 ## What does it support? ##
 
