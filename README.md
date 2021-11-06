@@ -65,11 +65,12 @@ To **exit** the program press `OPTION-SHIFT-Q`.
 ## Versions ##
 **Outdated tag versions:**
 
-* `Version 0.9 - 16.10.2021 | mtex beta`
-* `Version 1.0 - 17.10.2021 | mtex release`
+* `Version 0.9   - 16.10.2021 | mtex beta`
+* `Version 1.0   - 17.10.2021 | mtex release`
+* `Version 1.0.5 - 20.10.2021 | mtex mountain`
 
-**Current tag version:** `1.0.5 - 18.10.2021 | mtex mountain`
+**Current tag version:** `1.1 - 06.11.2021 | mtex lago`
 
-**Current version:** `1.0.9.6 - 20.10.2021`
+**Current version:** `1.1.0 - 06.11.2021`
 
-**Next planned tag version:** `1.1.0`
+**Next planned tag version:** `1.1.5`
