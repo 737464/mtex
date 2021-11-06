@@ -43,6 +43,16 @@ To **open** a file in mtex at start, type: `mtex` `file`.
 
 To **save** a file while the program is running, press `OPTION-SHIFT-S`.
 
+To **rename** the file click on the `file name`, the `line with the file name` or
+press `OPTION-SHIFT-R`. If you want to cancel renaming press `ESC`, if you want
+to confirm the new name press `RETURN` or `click on the text with your cursor`.
+
+To **enable coding features** press `OPTION-SHIFT-C`, to disable press it again.
+
+To **exit** the program press `OPTION-SHIFT-Q`.
+
+- - -
+
 To **show** current cursor position and more **text information** press `OPTION-SHIFT-I`, to
 hide press it again.
 
@@ -53,14 +63,6 @@ To **show license preview** press `OPTION-SHIFT-L`, to hide press it again.
 To **show complete license** type `mtex -license` when starting mtex.
 
 To **show acknowledgement(s)** type `mtex -acknowledgement` when starting mtex.
-
-To **rename** the file click on the `file name`, the `line with the file name` or
-press `OPTION-SHIFT-R`. If you want to cancel renaming press `ESC`, if you want
-to confirm the new name press `RETURN` or `click on the text with your cursor`.
-
-To **enable coding features** press `OPTION-SHIFT-C`, to disable press it again.
-
-To **exit** the program press `OPTION-SHIFT-Q`.
 
 ## Versions ##
 **Outdated tag versions:**
