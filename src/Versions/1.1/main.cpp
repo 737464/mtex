@@ -22,6 +22,10 @@ bool show_info = false;
 bool coding = false;
 bool version = false;
 bool license = false;
+int delete_times_pressed = 0;
+int erase_chars = 1;
+int selection_start_x, selection_start_y, selection_end_x, selection_end_y;
+bool selecting = false;
 
 
 
@@ -240,17 +244,24 @@ int pos_is_char(_text_ * text, int line, char chr){
 void check(){
     printing = true;
     if(win.get() == DELETE){
-        if(win.cxpos > 0){
-            text.remove(win.cxpos-1, win.cypos);
-            win.cxpos--;
-            lxpos = win.cxpos;
+        delete_times_pressed++;
+        if(delete_times_pressed > 25){
+            delete_times_pressed = 0;
+            erase_chars++;
         }
 
-        else if(win.cxpos == 0){
-            if(win.cypos > 0){
-                win.cypos--;
-                win.cxpos = text.get_size(win.cypos);
-                text.remove(SOL, win.cypos+1);
+        for(int i = 0; i < erase_chars; i++){
+            if(win.cxpos > 0){
+                text.remove(win.cxpos-1, win.cypos);
+                win.cxpos--;
+                lxpos = win.cxpos;
+            }
+            else if(win.cxpos == 0){
+                if(win.cypos > 0){
+                    win.cypos--;
+                    win.cxpos = text.get_size(win.cypos);
+                    text.remove(SOL, win.cypos+1);
+                }
             }
         }
     }
@@ -302,6 +313,7 @@ void check(){
         }
     }
     else if(win.get() == KEY_UP){
+        selecting = false;
         if(win.cypos > 0){
             if(text.get_size(win.cypos-1) < lxpos){
                 win.cxpos = text.get_size(win.cypos-1);
@@ -317,6 +329,7 @@ void check(){
         }
     }
     else if(win.get() == KEY_DOWN){
+        selecting = false;
         if(win.cypos < text.size()-1){
             if(text.get_size(win.cypos+1) < lxpos){
                 win.cxpos = text.get_size(win.cypos+1);
@@ -332,6 +345,7 @@ void check(){
         }
     }
     else if(win.get() == KEY_RIGHT){
+        selecting = false;
         if(win.cxpos < text.get_size(win.cypos)){
             win.cxpos++;
             lxpos = win.cxpos;
@@ -345,6 +359,7 @@ void check(){
         }
     }
     else if(win.get() == KEY_LEFT){
+        selecting = false;
         if(win.cxpos > 0){
             win.cxpos--;
             lxpos = win.cxpos;
@@ -386,6 +401,10 @@ void check(){
                     win.cypos = text.size()-1;
                     win.cxpos = text.get_size(win.cypos);
                 }
+                if(win.mouse.bstate & BUTTON_SHIFT){
+                    selection_end_x = win.cxpos;
+                    selection_end_y = win.cypos;
+                }
             }
         }
     }
@@ -405,18 +424,27 @@ void check(){
         show_info ? show_info = false: show_info = true;
     }
     else if(win.get() == OPTION_SHIFT_R){
+        selecting = false;
         rename(0, false);
     }
     else if(win.get() == OPTION_SHIFT_Q){
         running = false;
     }
     else if(win.get() == FN_DELETE){
-        if(win.cxpos < text.get_size(win.cypos)){
-            text.remove(win.cxpos, win.cypos);
+        delete_times_pressed++;
+        if(delete_times_pressed > 25){
+            delete_times_pressed = 0;
+            erase_chars++;
         }
-        else if(win.cxpos == text.get_size(win.cypos)){
-            if(win.cypos+1 < text.size()){
-                text.remove(SOL, win.cypos+1);
+
+        for(int i = 0; i < erase_chars; i++){
+            if(win.cxpos < text.get_size(win.cypos)){
+                text.remove(win.cxpos, win.cypos);
+            }
+            else if(win.cxpos == text.get_size(win.cypos)){
+                if(win.cypos+1 < text.size()){
+                    text.remove(SOL, win.cypos+1);
+                }
             }
         }
     }
@@ -500,6 +528,11 @@ void check(){
         }
         win.cxpos++;
         lxpos = win.cxpos;
+        selecting = false;
+    }
+    if(win.get() != DELETE and win.get() != FN_DELETE){
+        delete_times_pressed = 0;
+        erase_chars = 1;
     }
     set_line();
     set_line_chars();

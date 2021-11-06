@@ -19,15 +19,14 @@ Version [Version number (e.g. 1.0)] - [Started Release Date]
 #Changelog
 
 Unreleased:
-    - Add file menu [1]
     - Add file tabs [1]
     - Fix flickering of text while resizing font (cmd+/cmd-)[1]
     - Add mouse scrolling [2]
     - Add selection tool [2]
-    - Add extended ASCII support [1]
+    - Add extended ASCII support [1] (with new text class)
     - Split features into more functions and headers [1]
     - Create .mtexfh (mtex file history) to store informations [1]
-    - Change scrolling system [1]
+
 
 Version 0.9 - 16.10.2021
     Subversion 0.9 - 16.10-2021 @ 737464
@@ -74,6 +73,7 @@ Version 1.0 - 17.10.2021
             - Definitions
         Changed:
             - Mouse input processing function
+        Deprecated:
         Removed:
         Fixed:
 
@@ -88,6 +88,7 @@ Version 1.0 - 17.10.2021
         Added:
             - Definition
         Changed:
+        Deprecated:
         Removed:
         Fixed:
             - renaming bug
@@ -97,6 +98,7 @@ Version 1.0 - 17.10.2021
             - Coding feature
         Changed:
             - Info
+        Deprecated:
         Removed:
         Fixed:
 
@@ -113,6 +115,7 @@ Version 1.0 - 17.10.2021
             - Coding features
         Changed:
             - function "void check()"
+        Deprecated:
         Removed:
         Fixed:
             - Coding feature bugs
@@ -122,6 +125,7 @@ Version 1.0 - 17.10.2021
         Changed:
             - line displaying
             - cursor movement
+        Deprecated:
         Removed:
         Fixed:
 
@@ -136,6 +140,7 @@ Version 1.0 - 17.10.2021
         Added:
             - error function
         Changed:
+        Deprecated:
         Removed:
         Fixed:
 
@@ -154,6 +159,7 @@ Version 1.0 - 17.10.2021
             - Empty file name preventer
         Changed:
             - Character adding function
+        Deprecated:
         Removed:
         Fixed:
 
@@ -161,12 +167,14 @@ Version 1.0 - 17.10.2021
         Added:
         Changed:
             - displaying of characters (line and line_chars function)
+        Deprecated:
         Removed:
         Fixed:
 
         Subversion 1.0.9.5 - 20.10.2021 @ 737464
             Added:
             Changed:
+            Deprecated:
             Removed:
             Fixed:
                 - Coding feature bug
@@ -176,5 +184,17 @@ Version 1.0 - 17.10.2021
                 - show license with parameter "-license"
                 - show acknowledgement with parameter "-acknowledgement"
             Changed:
+            Deprecated:
+            Removed:
+            Fixed:
+
+
+Version 1.1 - 22.10.2021
+
+    Subversion 1.1.0 - 22.10.2021 @ 737464
+            Added:
+                - faster deleting of charactes (every 25 deletes, one more character is deleted per time)
+            Changed:
+            Deprecated:
             Removed:
             Fixed:
