@@ -326,6 +326,7 @@ void check(){
         }
         else{
             win.cxpos = 0;
+            lxpos = win.cxpos;
         }
     }
     else if(win.get() == KEY_DOWN){
@@ -342,6 +343,7 @@ void check(){
         }
         else{
             win.cxpos = text.get_size(text.size()-1);
+            lxpos = win.cxpos;
         }
     }
     else if(win.get() == KEY_RIGHT){

@@ -192,9 +192,16 @@ Version 1.0 - 17.10.2021
 Version 1.1 - 22.10.2021
 
     Subversion 1.1.0 - 22.10.2021 @ 737464
-            Added:
-                - faster deleting of charactes (every 25 deletes, one more character is deleted per time)
-            Changed:
-            Deprecated:
-            Removed:
-            Fixed:
+        Added:
+            - faster deleting of charactes (every 25 deletes, one more character is deleted per time)
+        Changed:
+        Deprecated:
+        Removed:
+        Fixed:
+    Subversion 1.1.0.5 - 11.11.2021 @ 737464
+        Added:
+        Changed:
+        Deprecated:
+        Removed:
+        Fixed:
+            - Cursor movement
