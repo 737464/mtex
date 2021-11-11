@@ -21,9 +21,7 @@ Version [Version number (e.g. 1.0)] - [Started Release Date]
 Unreleased:
     - Add file tabs [1]
     - Fix flickering of text while resizing font (cmd+/cmd-)[1]
-    - Add mouse scrolling [2]
     - Add selection tool [2]
-    - Add extended ASCII support [1] (with new text class)
     - Split features into more functions and headers [1]
     - Create .mtexfh (mtex file history) to store informations [1]
 
