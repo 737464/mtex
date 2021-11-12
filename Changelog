@@ -203,10 +203,19 @@ Version 1.1 - 22.10.2021
         Removed:
         Fixed:
             - Cursor movement
-    Subversion 1.1.0.6 - 11.11.2021 @ 737464
+    Subversion 1.1.0.6 - 12.11.2021 @ 737464
         Added:
         Changed:
         Deprecated:
         Removed:
             - faster deleting of characters
+        Fixed:
+    Subversion 1.1.1 - 12.11.2021 @ 737464
+        Added:
+            - Questionmark that indicates unsaved changes
+            - Checking for made changes
+        Changed:
+        Deprecated:
+        Removed:
+            - leftovers of faster deleting of characters
         Fixed:

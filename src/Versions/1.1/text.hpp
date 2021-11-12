@@ -8,6 +8,7 @@
 class _text_{
     std::string line_buffer;                                                    //to store copied part of a line
     std::vector<std::string> text;                                              //contains the text. Each string represents a line
+    std::vector<std::string> original;                                          //contains the original text.
 
 public:
     _text_(){
@@ -98,6 +99,14 @@ public:
         text = content;
     }
 
+    void set_original(std::vector<std::string> content){
+        original = content;
+    }
+
+    void set_original_to_text(){
+        original = text;
+    }
+
     int get_total(){
         int buffer = 0;
 
@@ -107,6 +116,13 @@ public:
         buffer += text.size()-1;
 
         return buffer;
+    }
+
+    bool is_original(){
+        if(text == original){
+            return true;
+        }
+        return false;
     }
 };
 

@@ -26,7 +26,7 @@ int delete_times_pressed = 0;
 int erase_chars = 1;
 int selection_start_x, selection_start_y, selection_end_x, selection_end_y;
 bool selecting = false;
-
+bool saved = false;
 
 
 void is_error(bool set_error){
@@ -84,9 +84,11 @@ std::string get_substr(int start, int length, std::string str){
 void display(){
     if(printing){
         win.clearwin();
-
         win.printl(0, 0, file.get_name());
-        win.printl(file.get_name().size(), 0, get_substr(0, win.width-file.get_name().size(), ((show_info ? " | C: " + std::to_string(win.cxpos) + "/" + std::to_string(text.get_size(win.cypos)) + ", L: " + std::to_string(win.cypos+1) + "/" + std::to_string(text.size()) + ", Total: " + std::to_string(text.get_total()) : "") + (coding ? " | [C]" : "") + (version ? " | Version " + version_str : "") + (license ? " | License: MIT Copyright (c) 2021 737464" : ""))));
+        if(!saved){
+            win.printl(file.get_name().size(), 0, " ?");
+        }
+        win.printl(file.get_name().size()+(saved ? 0 : 2), 0, get_substr(0, win.width-file.get_name().size(), ((show_info ? " | C: " + std::to_string(win.cxpos) + "/" + std::to_string(text.get_size(win.cypos)) + ", L: " + std::to_string(win.cypos+1) + "/" + std::to_string(text.size()) + ", Total: " + std::to_string(text.get_total()) : "") + (coding ? " | [C]" : "") + (version ? " | Version " + version_str : "") + (license ? " | License: MIT Copyright (c) 2021 737464" : ""))));
 
         int linebuffer = line;
         for(int i = 0; i < win.height; i++){
@@ -276,6 +278,7 @@ void check(){
                 text.remove(SOL, win.cypos+1);
             }
         }
+        saved = false;
     }
     else if(win.get() == TAB){
         text.add(win.cxpos, win.cypos, ' ');
@@ -283,6 +286,7 @@ void check(){
         text.add(win.cxpos, win.cypos, ' ');
         text.add(win.cxpos, win.cypos, ' ');
         win.cxpos += 4;
+        saved = false;
     }
     else if(win.get() == LF){
         if(coding){
@@ -293,6 +297,7 @@ void check(){
                 for(int spaces = 0; spaces < win.cxpos; spaces++){
                     text.add(0, win.cypos, SPACE);
                 }
+                saved = false;
             }
             else if(text.getchr(win.cxpos-1, win.cypos) == '{' and text.getchr(win.cxpos, win.cypos) == '}'){
                 text.newline(win.cxpos, win.cypos);
@@ -306,6 +311,7 @@ void check(){
                 win.cxpos = pos_not_char(&text, win.cypos, SPACE)+4;
                 lxpos = win.cxpos;
                 win.cypos++;
+                saved = false;
             }
             else{
                 text.newline(win.cxpos, win.cypos);
@@ -315,6 +321,7 @@ void check(){
                 }
                 win.cypos++;
                 lxpos = win.cxpos;
+                saved = false;
             }
         }
         else{
@@ -322,6 +329,7 @@ void check(){
             win.cxpos = 0;
             win.cypos++;
             lxpos = 0;
+            saved = false;
         }
     }
     else if(win.get() == KEY_UP){
@@ -432,7 +440,9 @@ void check(){
         version ? version = false : version = true;
     }
     else if(win.get() == OPTION_SHIFT_S){
-        file.write(text.get_text());
+        if(file.write(text.get_text())){
+            saved = true;
+        }
     }
     else if(win.get() == OPTION_SHIFT_I){
         show_info ? show_info = false: show_info = true;
@@ -445,7 +455,7 @@ void check(){
         running = false;
     }
     else if(win.get() == FN_DELETE){
-        delete_times_pressed++;
+        /*delete_times_pressed++;
         if(delete_times_pressed > 25){
             delete_times_pressed = 0;
             erase_chars++;
@@ -459,6 +469,16 @@ void check(){
                 if(win.cypos+1 < text.size()){
                     text.remove(SOL, win.cypos+1);
                 }
+            }
+        }*/
+        if(win.cxpos < text.get_size(win.cypos)){
+            text.remove(win.cxpos, win.cypos);
+            saved = false;
+        }
+        else if(win.cxpos == text.get_size(win.cypos)){
+            if(win.cypos+1 < text.size()){
+                text.remove(SOL, win.cypos+1);
+                saved = false;
             }
         }
     }
@@ -543,11 +563,17 @@ void check(){
         win.cxpos++;
         lxpos = win.cxpos;
         selecting = false;
+        saved = false;
     }
-    if(win.get() != DELETE and win.get() != FN_DELETE){
+    /*if(win.get() != DELETE and win.get() != FN_DELETE){
         delete_times_pressed = 0;
         erase_chars = 1;
+    }*/
+
+    if(text.is_original()){
+        saved = true;
     }
+
     set_line();
     set_line_chars();
 }
@@ -645,6 +671,7 @@ int main(int argc, const char * argv[]){
         }
         file.set_name(argv[1]);
         text.set_text(str_to_vecstr(file.read()));
+        text.set_original_to_text();
     }
 
     is_error(false);
