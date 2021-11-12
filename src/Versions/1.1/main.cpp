@@ -244,7 +244,7 @@ int pos_is_char(_text_ * text, int line, char chr){
 void check(){
     printing = true;
     if(win.get() == DELETE){
-        delete_times_pressed++;
+        /*delete_times_pressed++;
         if(delete_times_pressed > 25){
             delete_times_pressed = 0;
             erase_chars++;
@@ -262,6 +262,18 @@ void check(){
                     win.cxpos = text.get_size(win.cypos);
                     text.remove(SOL, win.cypos+1);
                 }
+            }
+        }*/
+        if(win.cxpos > 0){
+            text.remove(win.cxpos-1, win.cypos);
+            win.cxpos--;
+            lxpos = win.cxpos;
+        }
+        else if(win.cxpos == 0){
+            if(win.cypos > 0){
+                win.cypos--;
+                win.cxpos = text.get_size(win.cypos);
+                text.remove(SOL, win.cypos+1);
             }
         }
     }

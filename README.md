@@ -73,6 +73,6 @@ To **show acknowledgement(s)** type `mtex -acknowledgement` when starting mtex.
 
 **Current tag version:** `1.1 - 06.11.2021 | mtex lago`
 
-**Current version:** `1.1.1 - 06.11.2021`
+**Current version:** `1.1.0.6 - 12.11.2021`
 
 **Next planned tag version:** `1.1.5`
