@@ -19,7 +19,6 @@ Version [Version number (e.g. 1.0)] - [Started Release Date]
 #Changelog
 
 Unreleased:
-    - Add file tabs [1]
     - Fix flickering of text while resizing font (cmd+/cmd-)[1]
     - Add selection tool [2]
     - Split features into more functions and headers [1]
@@ -197,20 +196,23 @@ Version 1.1 - 22.10.2021
         Deprecated:
         Removed:
         Fixed:
-    Subversion 1.1.0.5 - 11.11.2021 @ 737464
-        Added:
-        Changed:
-        Deprecated:
-        Removed:
-        Fixed:
-            - Cursor movement
-    Subversion 1.1.0.6 - 12.11.2021 @ 737464
-        Added:
-        Changed:
-        Deprecated:
-        Removed:
-            - faster deleting of characters
-        Fixed:
+
+        Subversion 1.1.0.5 - 11.11.2021 @ 737464
+            Added:
+            Changed:
+            Deprecated:
+            Removed:
+            Fixed:
+                - Cursor movement
+
+        Subversion 1.1.0.6 - 12.11.2021 @ 737464
+            Added:
+            Changed:
+            Deprecated:
+            Removed:
+                - faster deleting of characters
+            Fixed:
+
     Subversion 1.1.1 - 12.11.2021 @ 737464
         Added:
             - Questionmark that indicates unsaved changes
@@ -220,3 +222,12 @@ Version 1.1 - 22.10.2021
         Removed:
             - leftovers of faster deleting of characters
         Fixed:
+
+        Subversion 1.1.1.1 - 15.11.2021 @ 737464
+            Added:
+                - Position based tab size to fit in tab grid while coding feature is activated
+            Changed:
+            Deprecated:
+            Removed:
+            Fixed:
+                - mouse position tracking

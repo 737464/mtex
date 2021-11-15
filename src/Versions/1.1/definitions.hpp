@@ -3,6 +3,7 @@
 
 #define SOL -1                                                                  //Start Of Line
 #define TAB 9
+#define TAB_SIZE 4
 #define LF 10
 #define ESC 27
 #define SPACE 32

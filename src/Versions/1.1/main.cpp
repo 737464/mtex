@@ -4,6 +4,18 @@
 #include "text.hpp"
 #include "window.hpp"
 
+
+int maxnum(int n1, int n2){
+    while(n1 - n2 >= 0){
+    	n1 -= n2;
+    }
+	return n1;
+}
+
+
+
+
+
 _text_ text;
 _window_ win;
 _file_ file;
@@ -27,6 +39,7 @@ int erase_chars = 1;
 int selection_start_x, selection_start_y, selection_end_x, selection_end_y;
 bool selecting = false;
 bool saved = false;
+int line_size_buffer;
 
 
 void is_error(bool set_error){
@@ -281,11 +294,20 @@ void check(){
         saved = false;
     }
     else if(win.get() == TAB){
-        text.add(win.cxpos, win.cypos, ' ');
-        text.add(win.cxpos, win.cypos, ' ');
-        text.add(win.cxpos, win.cypos, ' ');
-        text.add(win.cxpos, win.cypos, ' ');
-        win.cxpos += 4;
+        if(coding){
+            line_size_buffer = win.cxpos;
+            for(int i = 0; i < TAB_SIZE - maxnum(line_size_buffer, TAB_SIZE); i++){
+                text.add(win.cxpos, win.cypos, ' ');
+            }
+            win.cxpos += TAB_SIZE - maxnum(line_size_buffer, TAB_SIZE);
+        }
+        else{
+            for(int i = 0; i < TAB_SIZE; i++){
+                text.add(win.cxpos, win.cypos, ' ');
+            }
+            win.cxpos += TAB_SIZE;
+        }
+        lxpos = win.cxpos;
         saved = false;
     }
     else if(win.get() == LF){
@@ -399,7 +421,7 @@ void check(){
             if(win.mouse.bstate & BUTTON1_CLICKED){
                 win.mxpos = win.mouse.x+line_chars;
                 win.mypos = win.mouse.y+line;
-                if(win.mypos+line <= text.size() and win.mypos-line > 0){
+                if(win.mypos <= text.size() and win.mypos-line > 0){
                     if(win.mxpos < text.get_size(win.mypos-1)){                 //e.g.: 6 < text.get_size(1-1)
                         win.cxpos = win.mxpos;                                  //                          ^because of first line being file name
                         win.cypos = win.mypos-1;
